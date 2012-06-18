@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Nilesh Trivedi</title>
+   <title>Nilesh Trivedi :: {{ page.title }}</title>
    <meta name="author" content="Nilesh Trivedi" />
    <link href="http://feeds.feedburner.com/nileshtrivedi" rel="alternate" title="Nilesh Trivedi" type="application/atom+xml" />
 
@@ -18,10 +18,12 @@
 <div class="site">
   <div class="title">
     <a href="/">Nilesh Trivedi</a>
-    <a class="extra" href="/">home</a>
   </div>
   
-  <div id="home">{{ content }}</div>
+  <div id="home">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+  </div>
   
   <div class="footer">
     <div class="contact">
@@ -32,8 +34,8 @@
     </div>
     <div class="contact">
       <p>
-        <a href="http://github.com/nileshtrivedi/">github.com/nileshtrivedi</a><br />
-        <a href="http://twitter.com/nileshtrivedi/">twitter.com/nileshtrivedi</a><br />
+        <a href="http://github.com/nileshtrivedi/" target="_blank">github.com/nileshtrivedi</a><br />
+        <a href="http://twitter.com/nileshtrivedi/" target="_blank">twitter.com/nileshtrivedi</a><br />
       </p>
     </div>
     <div class="rss">
@@ -44,7 +46,7 @@
   </div>
 </div>  
 
-<a href="http://github.com/nileshtrivedi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+<a href="http://github.com/nileshtrivedi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/css/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
 
 </body>
 </html>
