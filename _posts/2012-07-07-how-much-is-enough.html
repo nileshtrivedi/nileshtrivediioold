@@ -1,0 +1,55 @@
+---
+layout: default
+title: "How Much Is Enough? : A Formula for FU Money"
+---
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
+
+<p><i>At a party given by a billionaire on Shelter Island, Kurt Vonnegut informed his pal, Joseph Heller, that their host, a hedge fund manager, had made more money in a single day than Heller had earned from his wildly popular novel Catch 22 over its whole history. Heller responded, "Yes, but I have something he will never have. Enough."</i></p>
+
+<p>How much money is enough? We're obsessed with this question, aren't we? Research has found that there is a connection between wealth and happiness, but only upto a limit. The beneficial effects of wealth taper off almost entirely once a comfortable living standard is reached. This living standard would obviously be different across individuals, cultures, and economies. What almost everyone agrees with however, is that it would be inefficient use of our time accumulating wealth that we never use. Wealth, among other things, is only a means to an end. We should earn it as much as we need and no more.</p>
+
+<p>It is common to see this theory, and advice based on it, in popular media. <a href="http://www.nytimes.com/2012/07/08/opinion/sunday/dont-indulge-be-happy.html?_r=2&smid=fb-share&pagewanted=all" target="_blank">This one</a>, for example, was recently in the news. What I haven't yet seen is a mathematical analysis, even a simplistic one, to come up with a formula for this amount - wealth that we need to comfortable retire and never having to worry about money at all - commonly known as <b>FU money</b>.</p>
+
+<p>FU money is defined as: <i>any amount of money allowing infinite perpetuation of wealth necessary to maintain a desired lifestyle without needing employment or assistance from anyone</i>. With only interest (return on investments) as an income, this should last all of the remaining years of my life, while accounting for my lifestyle and inflation. I was curious to see what the formula would look like and this is what I came up with. I made certain assumptions to simplify the exercise but the point is to come up with an analytical formula and understand its nature to see the impact of each variable.</p>
+
+<p>First, let me define a few terms:</p>
+<p>
+`S_n` : Savings at the start of the `n^(th)` year (counting from `0`).<br/>
+`E_n` : Expenses for the `n^(th)` year<br/>
+`i` &nbsp; &nbsp;: % Rate of return (like interest) on my savings<br/>
+`f` &nbsp;: Inflation rate (% increase in my expenses every year, assuming that my lifestyle remains the same)<br/>
+`N` &nbsp;:  Numbers of years remaining in my life (estimated)<br/>
+</p>
+
+<p>Every year, we earn some income as interest on our savings, spend some money as that year's expenses, and transfer the remaining back to the savings. When interest income is less than expense for the year, we will need to take funds out of savings. With time, savings would dwindle away each year and ultimately reach zero. Our hope is that this point comes just after our dealth so that our entire life is taken care of.</p>
+
+<p>So our goal is to find `S_0` (initial savings) such that `S_n` becomes 0 when `n = N`. To get this, first we need to write `S_n` in terms of `S_0`, `E_0`, `i`, `f` and `n` and then solve it for `n = N` such that `S_n = 0`.</p>
+
+<p style="text-align:left">
+Let's use `I=(1+i)` and `F=(1+f)` to simplify our equations:<br/><br/>
+  `E_n = E_0(1+f)^n = E_0F^n`<br/><br/>
+Savings at the start of `n^(th)` year can be written as: savings at the start of the `(n-1)^(th)` year, plus interest earned, minus expenses for the year. However, to avoid a cashflow problem, money has to be kept aside at the start of the year for expenses and therefore interest will be earned only on the remaining amount.<br/><br/>
+  `S_n = S_(n-1)+(S_(n-1)-E_(n-1))i-E_(n-1)`<br/>
+  `    = S_(n-1)I-E_(n-1)I`<br/>
+  `    = S_(n-2)I^2-E_(n-1)I-E_(n-2)I^2`<br/>
+  `    = S_(n-k)I^k-E_0(F^(n-1)I+F^(n-2)I^2+ ... + F^(n-k)I^k)`<br/>
+  `    = S_(n-k)I^k-E_0F^(n-1)I((I/F)^k-1)/(I/F-1)`<br/><br/>
+By using `k=n`, we can get `S_n` in terms of `S_0`:<br/><br/>
+  `S_n = S_0I^n-E_0I((I^n-F^n)/(I-F))`<br/><br/>
+
+Let's define `P=S_0/E_0` and `r=F/I`. Now we can find `S_0` in terms of `N` such that `S_N = 0`:<br/><br/>
+  <b>FU Money = `S_0 = E_0(1-r^N)/(1-r)`</b><br/><br/>
+
+There it is. The relationship is actually quite straight forward but we get to learn what the important variables are. What really matters is `r` : the ratio of inflation to interest and not their absolute values. Also, your FU money turns out to be a direct multiple of the cost of your desired lifestyle. As an example, taking `f = 7%, i = 10%`, and `N = 40` years, I need savings equal to 25 times of this year's expenses.<br/><br/>
+As a special case, when `r=1`:  `S_0 = NE_0`<br/><br/>
+Typically, `r` is always less than 1 (Think about it: if inflation were higher than interest rate, borrowing money would be impossible). But `r` can be higher than 1 if you are really bad at investing. I plotted `P` as a function of `r` for `N = 30` below. You can clearly see how much of a difference `r` makes to the FU money. For `r = 0.5`, `P = 2` meaning that you just need savings worth two times your current expenses to not have to work for next 30 years. When `r = 0.7`, this factor becomes `3.3`. It grows to `9.5` for `r = 0.9`, `30` for `r = 1` and `164` for `r = 1.1`. <b>Being good at investing is absolutely critical to retiring early.</b>
+
+<p><img src="/images/fumoney-chart.jpg"/></p>
+<p>You'll have to be <i>really</i> good at investing to bring `r` below 0.9 (although this task becomes much easier if you live in low-inflation countries).</p>
+We can also find the year when a given amount of savings will last - by solving for `N` in terms of `S_0`:<br/><br/>
+  `N = log(1 - (S_0/E_0)(I-F)/I)/log(F/I)`<br/><br/>
+  `&nbsp; = log(1-P(1-r))/log(r)`<br/><br/>
+</p>
+<p>Needless to say, this analysis is quite simplistic. Big life events like marriage, chlidren etc. will affect the lifestyle immensely and have to be considered. Also, if you want to leave some money when you die (say for family or charity), that has to be accounted for too.</p>
+<p><a href="http://www.twitter.com/nileshtrivedi" target="_blank">Let me know</a> what you think.</p>
