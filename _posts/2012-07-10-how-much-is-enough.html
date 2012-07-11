@@ -37,13 +37,14 @@ Let's define `P=S_0/E_0` and `r=F/I`. Now we can find `S_0` in terms of `N` such
 <p>Note that `r = F/I = (1+f)/(1+i)`. For example, 3% inflation and 10% interest means `r = 1.03 / 1.10 = 0.936`. Don't calculate `r` to be `0.03 / 0.10 = 0.3`.</p><br/>
 There it is. The relationship is actually quite straight forward but we get to learn what the important variables are. What really matters is `r` : the ratio of inflation to interest and not their absolute values. Also, your FU money turns out to be a direct multiple of the cost of your desired lifestyle. As an example, taking `f = 7%, i = 10%`, and `N = 40` years, I need savings equal to 25 times of this year's expenses.<br/><br/>
 As a special case, when `r=1`:  `S_0 = NE_0`<br/><br/>
+<p>Here is a simulation in excel which verifies that the formula is correct.</p>
+<iframe width='600' height='300' frameborder='0' src='https://docs.google.com/spreadsheet/pub?key=0AoinifMU5kOMdHpQQnU5a21HSUtQRUZQeWVLZmNkemc&single=true&gid=0&output=html&widget=true'></iframe>
+<p><a href="/files/fu-money.xls">Download the excel sheet</a> to try it out and verify for yourself.</p>
+<br/>
 Typically, `r` is always less than 1 (Think about it: if inflation were higher than interest rate, borrowing money would be impossible). But `r` can be higher than 1 if you are really bad at investing. I plotted `P` as a function of `r` for `N = 30` below. You can clearly see how much of a difference `r` makes to the FU money. For `r = 0.5`, `P = 2` meaning that you just need savings worth two times your current expenses to not have to work for next 30 years. When `r = 0.7`, this factor becomes `3.3`. It grows to `9.5` for `r = 0.9`, `30` for `r = 1` and `164` for `r = 1.1`. <b>Being good at investing is absolutely critical to retiring early.</b>
 
 <p><img src="/images/fumoney-chart.jpg"/></p>
 
-<p>Here is a simulation in excel which verifies that the formula is correct.</p>
-<iframe width='600' height='300' frameborder='0' src='https://docs.google.com/spreadsheet/pub?key=0AoinifMU5kOMdHpQQnU5a21HSUtQRUZQeWVLZmNkemc&single=true&gid=0&output=html&widget=true'></iframe>
-<p><a href="/files/fu-money.xls">Download the excel sheet</a> to try it out and verify for yourself.</p>
 <p>You'll have to be <i>really</i> good at investing to bring `r` below 0.9 (although this is much easier if you live in low-inflation countries).</p>
 We can also find the year when a given amount of savings will last - by solving for `N` in terms of `S_0`:<br/><br/>
   `N = log(1 - (S_0/E_0)(I-F)/I)/log(F/I)`<br/><br/>
