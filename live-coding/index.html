@@ -2,4 +2,34 @@
 layout: default
 title: Live Coding
 ---
-Bret Victor&#39;s presentation <a href="http://vimeo.com/36579366">Inventing On Principle</a> was thought-provoking. As a programmer, we have always known this but his emphasis on the point, that an immediate connection to creative output is enormously valuable, forces us to rethink about our tools and how we can improve them.<p /> As I was watching his demo, I realized that the demo relied on certain assumptions. His prototype was for drawing an image on HTML5 canvas. One can easily imagine such a code editor for physical simulations as well. Both of these however are <b>passive</b> and <b>visual</b> in nature. An image is both static and passive, whereas a simulation is dynamic, but still passive. Both are visually perceived, so they can be grasped in an instant.<p /> Most programs are not passive. Code is supposed to <b>do</b> things - manipulate the state of the universe. It&#39;s the correct <b>behaviour</b> that we are trying to achieve with our code. I started thinking about how we can immediately visualize the behaviour of code. Behaviour is such a transitive thing - it occupies time. Similar to audio (eg. music), visualizing the entire personality of code appears time-consuming. Code can&#39;t be summarized by data.<p /> But can&#39;t it really? Almost immediately I realized that code itself can be used to capture the expected behaviour of another piece of code. By the means of <b>executable tests</b>. So the boolean test results are sufficient to explain whether a piece of code works correctly or not. It is possible to visualize the health of a codebase in an instant.<p /> So I sat down and put together a minimal prototype for this. You can try it here: <a href="http://livecoding.staticloud.com/">http://livecoding.staticloud.com/</a><p />Of course, there are problems with live evaluation of code. One example is infinite loops which can be avoided by multiple threads. But seeing all the possible corner cases get resolved in real-time as you edit the code is incredibly fun. The bugs become immediately visible - making the programmer confident and happy. The longer it takes to realize that we made a mistake, the more miserable we feel. Nobody minds making a mistake when it can be immediately corrected. This also gives us an incentive to write comprehensive tests which is always a good thing.<p /> I think this direction is worth exploring further. Full-fledged editors for general-purpose programming languages providing live testing capability would be a huge improvement to a programmer&#39;s workflow.<p />What do you think? <a href="http://twitter.com/nileshtrivedi">Let me know</a>.
+Bret Victor&#39;s presentation <a href="http://vimeo.com/36579366">Inventing On Principle</a> was thought-provoking. 
+As a programmer, we have always known this but his emphasis on the point, that an immediate connection to creative output 
+is enormously valuable, forces us to rethink about our tools and how we can improve them.<p /> 
+
+As I was watching his demo, I realized that the demo relied on certain assumptions. His prototype was for drawing an image 
+on HTML5 canvas. One can easily imagine such a code editor for physical simulations as well. Both of these however are 
+<b>passive</b> and <b>visual</b> in nature. An image is both static and passive, whereas a simulation is dynamic, but 
+still passive. Both are visually perceived, so they can be grasped in an instant.<p /> 
+
+Most programs are not passive. Code is supposed to <b>do</b> things - manipulate the state of the universe. It&#39;s the correct 
+<b>behaviour</b> that we are trying to achieve with our code. I started thinking about how we can immediately visualize the 
+behaviour of code. Behaviour is such a transitive thing - it occupies time. Similar to audio (eg. music), visualizing the entire 
+personality of code appears time-consuming. Code can&#39;t be summarized by data.<p /> 
+
+But can&#39;t it really? Almost immediately I realized that code itself can be used to capture the expected behaviour of 
+another piece of code. By the means of <b>executable tests</b>. So the boolean test results are sufficient to explain whether 
+a piece of code works correctly or not. It is possible to visualize the health of a codebase in an instant.<p /> 
+
+So I sat down and put together a minimal prototype for this. You can try it here: <a href="http://livecoding.staticloud.com/">http://livecoding.staticloud.com/</a> 
+<b>Link not functional because StatiCloud is shut down. I'll upload this elsewhere and will update the link in some time.</b><p />
+
+Of course, there are problems with live evaluation of code. One example is infinite loops which can be avoided by multiple 
+threads. But seeing all the possible corner cases get resolved in real-time as you edit the code is incredibly fun. The bugs 
+become immediately visible - making the programmer confident and happy. The longer it takes to realize that we made a mistake, 
+the more miserable we feel. Nobody minds making a mistake when it can be immediately corrected. This also gives us an incentive 
+to write comprehensive tests which is always a good thing.<p /> 
+
+I think this direction is worth exploring further. Full-fledged editors for general-purpose programming languages providing live 
+testing capability would be a huge improvement to a programmer&#39;s workflow.<p />
+
+What do you think? <a href="http://twitter.com/nileshtrivedi">Let me know</a>.
