@@ -1,0 +1,71 @@
+/*css for nileshtrivedi.com*/
+
+body {
+   font-family: 'Noticia Text', 'trykker', serif;
+   }
+.container {
+   width: 900px;
+   max-width: 60%;
+   background-color: white;
+   margin: auto;
+   }
+
+.heading {
+   float: left;
+   padding: 10px 20px;
+   }
+   
+.contact_info {
+   float: right;
+   padding: 10px 20px;
+   }
+   
+header {
+   
+   }  
+   
+section {
+   margin: 100px 0;
+   clear: both;
+   }       
+   
+section img {
+   float: left;
+   display: inline-block;
+   }
+   
+.info {
+   text-align: center;
+   } 
+   
+p {
+   line-height: 30px;
+   font-size: 20px;
+   word-spacing: 2px;}        
+
+hr {
+   color: gray;
+   }
+   
+article {
+   clear: both;
+   } 
+   
+nav {
+   text-align: center;
+   }   
+   
+.work {
+   display: inline-block;
+   width: 30%;   
+   }
+   
+a {
+   text-decoration: none;
+   color: gray;
+   }
+   
+footer {
+   position: fixed;
+   bottom: 0;  
+   }   
