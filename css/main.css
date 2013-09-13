@@ -57,15 +57,32 @@ nav {
    
 .work {
    display: inline-block;
-   width: 30%;   
+   width: 45%; 
+   margin-bottom: 20px;  
    }
    
 a {
    text-decoration: none;
-   color: gray;
+   color: black;
    }
    
+.active {
+   background-color: #f0f0f0;
+   border-radius: 8px 8px 0 0;  
+   }  
+   
+.detail {
+   margin-top: -20px;
+   padding: 20px;
+   }   
+   
+.btn {
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 2px;
+   background-color: #cccccc;
+   }    
+
 footer {
-   position: fixed;
-   bottom: 0;  
+   
    }   
