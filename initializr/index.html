@@ -8,10 +8,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+
+				<link href='http://fonts.googleapis.com/css?family=Balthazar|Cardo|Petrona|Open+Sans:300italic' rel='stylesheet' type='text/css'>
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
@@ -21,44 +23,66 @@
         <![endif]-->
 
         <div class="header-container">
-            <header class="wrapper clearfix">
-                <nav>
-                    <ul>
-                        <li><a href="#"><img width="40" height="40" src="img/twitter.png"/></a></li>
-                        <li><a href="#"><img width="40" height="40" src="img/github.png"/></a></li>
-                    </ul>
-                </nav>
-            </header>
+        	<header class="wrapper clearfix">
+						<div class="heading">
+					<h1><a href="index.html">nilesh trivedi</a></h1>
+						</div>
+
+            <nav>
+        	    <ul>
+        	      <li><a href="#">twitter</a></li>
+                <li><a href="#">github</a></li>
+              </ul>
+            </nav>
+          </header>
         </div>
 
-        <div class="main-container">
-            <div class="main wrapper clearfix">
+				<div class="main-container">
+	      	<div class="main wrapper clearfix">
+						
+	         	<img src="img/nilesh.jpeg" class="intro-img"/>
+						<div class="intro">
+           		<p>I&#8217;m a software engineer, specially I do coding in Ruby, philosopher, voracious learner, reader and writer. I am an alumini of IITK and IIML, India. Currently I&#8217;m working independently on my personal projects. You can see some of my completed projects in my <a href="../portfolio.html"> portfolio.</a></p>
+           		<p>I&#8217;m also available for freelancing work which interests me.</p>
+            </div>
 
-                <article>
-                		<h1>Nilesh Trivedi</h1>
-                	  <img src="img/daniel_bw.jpg"/>
-                    <p style="font-size: 18px; line-height: 26px;">I&#8217;m a designer, writer, ethnographer, and educator. A recent Ph.D. grad from Stanford University, I&#8217;m currently a visiting professor in Tokyo at Keio University&#8217;s <a title="KMD" href="http://www.kmd.keio.ac.jp/en/" target="_blank">Graduate School of Media Design</a>, where I co-direct a joint program with the Royal College of Art, London, and Pratt Institute, New York. I teach my students how to study people, develop empathy, and improve human lives through design and education.</p>
-                    <p style="font-size: 18px; line-height: 26px;">I&#8217;m also a Bay Area native, a <a title="Music" href="http://steinbock.org/music/">songwriter</a>, and a <a title="Photography" href="http://steinbock.org/photo/">film photographer</a>.</p>
-                </article>
+            <aside>
+            	<ul>
+            		<li> <a href="portfolio.html">Portfolio</a></li>
+            		<li><a href="readings.html">Readings</a></li>
+								<hr>
+								<li><p>Writings</p></li>
+									<div>
+										<ul class="writing-top">
+											<li><a href="http://www.nileshtrivedi.com/2013/09/06/a-bottom-up-explanation-of-general-relativity.html"> A bottom-up explanation of general relativity</a></li>
+											<li><a href="http://www.nileshtrivedi.com/2013/06/20/reciprocity-in-open-access.html"> Reciprocity In Open Access</a></li>
+											<li><a href="http://www.nileshtrivedi.com/2012/12/06/use-an-algorithm-as-your-password.html"> Use An Algorithm As Your Password</a></li>
+										</ul>
+										<div class="more">
+											<a href="#" id="dd">more >></a>
+    									<ul id="dropdown">
+        								<li><a href="http://www.nileshtrivedi.com/2012/07/10/how-much-is-enough.html">How much is enough</a></li>
+        								<li><a href="http://www.nileshtrivedi.com/search-results-are-the-only-relevant-advertis">Search results are the only relevant advertise</a></li>
+        								<li><a href="http://www.nileshtrivedi.com/live-coding">Live coding</a></li>
+												<li><a href="http://www.nileshtrivedi.com/936-months">936 months</a></li>
+	       								<li><a href="http://www.nileshtrivedi.com/why-i-will-not-buy-asus-transformer-prime"> Why I Will Not Buy Asus Transformer Prime</a></li>
+												<li><a href="http://www.nileshtrivedi.com/my-letter-to-cert-in"> My letter to CERT-IN</a></li>
+        								<li><a href="http://www.nileshtrivedi.com/why-philosophize"> Should We Philosophize ?</a></li>
+												<li><a href="http://www.nileshtrivedi.com/a-quick-introduction-to-ruby"> A Quick Introduction To Ruby</a></li>
+	       								<li><a href="http://www.nileshtrivedi.com/monsoon-treks-in-maharashtra"> Monsoon Treks In Maharashtra</a></li>
+												<li><a href="http://www.nileshtrivedi.com/ubuntu-1004-lucid-lynx-on-dell-vostro-1520">Ubuntu 10.04 (Lucid Lynx) on Dell Vostro 1520
 
-                <aside>
-                    <ul>
-                    	<li>Portfolio</li>
-                    	<li>Fav Books</li>
-                    	<li>Music</li>
-                    	<li>Writings</li>
-                    </ul>
-                </aside>
+</a></li>
+    									</ul>
+										</div>
+									</div>				
+							</ul>
+            </aside>
 
-            </div> <!-- #main -->
+          </div> <!-- #main -->
         </div> <!-- #main-container -->
 
-        <div class="footer-container">
-            <footer class="wrapper">
-                
-            </footer>
-        </div>
-
+        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
@@ -69,6 +93,11 @@
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
             g.src='//www.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
+
+						$( "#dropdown" ).click(function() {
+$( "dd" ).click();
+});
+
+				</script>
     </body>
 </html>

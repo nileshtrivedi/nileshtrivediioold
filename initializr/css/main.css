@@ -11,8 +11,71 @@ textarea {
 }
 
 body {
+		font-family:'Balthazar', 'Cardo', 'Petrona', serif;
     font-size: 1em;
     line-height: 1.4;
+		word-spacing: 0.1em;
+}
+
+p {
+	font-size: 20px;
+	line-height: 27px;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+.heading {
+	float: left;
+}
+
+.main-container {
+	padding-top: 60px;
+}
+
+
+.intro {
+        float: left;
+        width: 45%;
+    }
+	 .intro-img {
+		width: 200px;
+		height: 250px;
+	 	float: left;
+	 	margin-right: 2%;
+	 	margin-bottom: 8%;
+	 }
+
+.more {
+		margin-top: -1em;
+}
+
+.writing-top {
+		marging-bottom: 0;
+}
+
+#dropdown {
+		display: none; 
+}
+#dd:focus {
+		display:none;
+}
+#dd:focus + #dropdown {
+		display: block;
+}
+
+h1 {
+	font-family: 'Znikomit';
+	
+}
+
+ul {
+	padding:0;
+}
+li {
+	padding:0;
+	line-height: 1.4;
 }
 
 ::-moz-selection {
@@ -32,10 +95,102 @@ hr {
     border-top: 1px solid #ccc;
     margin: 1em 0;
     padding: 0;
+		clear: both;
 }
 
 img {
     vertical-align: middle;
+}
+
+
+.col {
+		margin-left: 4%;
+		padding: 2%;
+		width: 42%;
+		float: left;
+}
+
+.col a {
+		text-decoration:none;
+}
+
+
+
+.col-book {
+		text-align: center;
+}
+
+.col-book img {
+		height: 250px;
+		width: 200px;
+		border: 1px dotted gray;
+		display: inline-block;
+		padding: 5px;
+		margin: 10px;
+}
+
+.col-book ul li {
+		display: inline;
+}
+
+
+.page h2 {
+		text-align:center;
+}
+
+.reading {
+		background-color: #ccc;
+}
+
+.writing {
+		background-color: purple;
+}
+
+.writing-aside {
+		width:20%;
+		display: inline-block;
+}
+
+.writing-article {
+		width:80%;
+		display: inline-block;
+}
+
+.p-img {
+		max-width: 30%;
+		margin: 3px 3% 20px 0;
+		float: left;
+
+}
+.p-heading {
+		text-align:center;
+}
+.one {
+		margin-left: 0
+}
+.port {
+		background-color: #8f6;
+}
+.portfolio {
+		width:600px;
+}
+
+.projects {
+		text-align:center;
+}
+
+.p {
+		max-width: 43%;
+		display: inline-block;
+		padding: 2%;
+		margin: 1%;
+		text-align: left;
+}
+a { 
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
 }
 
 fieldset {
@@ -48,12 +203,7 @@ textarea {
     resize: vertical;
 }
 
-.chromeframe {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
+
 
 
 /* ===== Initializr Styles ==================================================
@@ -62,12 +212,12 @@ textarea {
 
 body {
     /* font: 16px/26px Helvetica, Helvetica Neue, Arial; */
-    font-family: "Lucida Grande", "Lucida Sans Unicode", verdana, sans-serif;	
+    /*font-family: "Lucida Grande", "Lucida Sans Unicode", verdana, sans-serif;	*/
 }
 
-h1, h2, h3, h4, h5, h6 {
+/*h1, h2, h3, h4, h5, h6 {
 	font-family: ff-tisa-web-pro, Georgia, Cambria, 'Times New Roman', Times, serif;
-}
+}*/
 
 .wrapper {
     width: 90%;
@@ -83,16 +233,19 @@ nav ul {
     padding: 0;
 }
 
+nav ul li {
+		display: inline;
+		padding: 2px 5px;
+		float: right;
+}
+
 nav a {
     display: block;
     margin-bottom: 10px;
     padding: 15px 0;
-
     text-align: center;
     text-decoration: none;
-    font-weight: bold;
-
-}
+}    
 
 nav a:hover,
 nav a:visited {
@@ -103,20 +256,22 @@ nav a:hover {
     text-decoration: underline;
 }
 
+
 /* ==============
     MOBILE: Main
    ============== */
 
 .main {
-    padding: 30px 0;
+    padding: 10px 0;
 }
 
 .main article h1 {
     font-size: 2em;
+	
 }
 
 .main aside {
-    padding: 0px 5% 10px;
+    padding: 0px 1% 10px;
 }
 
 .footer-container footer {
@@ -201,26 +356,17 @@ nav a:hover {
 
     nav {
         float: right;
-        width: 18%;
     }
 
 /* ============
     WIDE: Main
    ============ */
 
-    .main article {
-        float: left;
-        width: 70%;
-    }
-	 .main article img {
-	 	float: left;
-	 	margin-right: 2%;
-	 	margin-bottom: 8%;
-	 }
+    
 
     .main aside {
         float: right;
-        width: 15%;
+        width: 25%;
     }
 }
 
@@ -368,3 +514,5 @@ nav a:hover {
         page-break-after: avoid;
     }
 }
+
+
