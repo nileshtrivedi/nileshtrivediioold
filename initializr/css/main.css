@@ -34,18 +34,37 @@ ul li {
 	padding-top: 60px;
 }
 
+.main {
+    padding: 10px 0;
+		text-align:center;
+}
+
+.main article h1 {
+    font-size: 2em;
+	
+}
+
 
 .intro {
-        float: left;
-        width: 45%;
+    width: 45%;
+		text-align: left;		
+	 	display: inline-block;
+		vertical-align:top;	
     }
 	 .intro-img {
 		width: 200px;
 		height: 250px;
-	 	float: left;
+	 	display: inline-block;
+		vertical-align:top;
 	 	margin-right: 2%;
 	 	margin-bottom: 8%;
 	 }
+.main-side{
+		text-align: left;	
+	 	display: inline-block;
+		vertical-align:top;	
+		padding: 0px 1% 10px;	
+    } 
 
 .more {
 		margin-top: -1em;
@@ -102,25 +121,39 @@ img {
     vertical-align: middle;
 }
 
-
-.col {
-		margin-left: 4%;
-		padding: 2%;
-		width: 42%;
-		float: left;
-}
-
 .col a {
 		text-decoration:none;
 }
 
-
-
-.col-book {
-		text-align: center;
+.p-img {
+		margin:10px;
+		width: 80%;
+}
+.p-heading {
+		text-align:center;
 }
 
-.col-book img {
+.port {
+		background-color: #8f6;
+}
+
+.descrip {
+		text-align: left;
+		padding-left: 15px;
+}
+.portfolio {
+		width: 310px;
+		border: 1px dotted gray;
+		display: inline-block;
+		margin: 10px;
+		vertical-align:top;
+}
+
+.col{
+		 text-align: center;
+}
+
+.r-img {
 		height: 250px;
 		width: 200px;
 		border: 1px dotted gray;
@@ -141,51 +174,29 @@ img {
 .reading {
 		background-color: #ccc;
 }
+.writingall {
+		text-align: left;
+		margin-left: 30%;
+}
 
 .writing {
 		background-color: purple;
 }
 
 .writing-aside {
-		width:20%;
+		width:25%;
 		display: inline-block;
+		text-align: left;
+		vertical-align: top;
 }
 
 .writing-article {
-		width:80%;
+		width:73%;
 		display: inline-block;
-}
-
-.p-img {
-		max-width: 30%;
-		margin: 3px 3% 20px 0;
-		float: left;
-
-}
-.p-heading {
-		text-align:center;
-}
-.one {
-		margin-left: 0
-}
-.port {
-		background-color: #8f6;
-}
-.portfolio {
-		width:600px;
-}
-
-.projects {
-		text-align:center;
-}
-
-.p {
-		max-width: 43%;
-		display: inline-block;
-		padding: 2%;
-		margin: 1%;
 		text-align: left;
+		vertical-align: top;
 }
+
 a { 
 	text-decoration: none;
 }
@@ -261,18 +272,7 @@ nav a:hover {
     MOBILE: Main
    ============== */
 
-.main {
-    padding: 10px 0;
-}
 
-.main article h1 {
-    font-size: 2em;
-	
-}
-
-.main aside {
-    padding: 0px 1% 10px;
-}
 
 .footer-container footer {
 	border-top: thin solid black;
@@ -364,10 +364,7 @@ nav a:hover {
 
     
 
-    .main aside {
-        float: right;
-        width: 25%;
-    }
+    
 }
 
 @media only screen and (min-width: 1140px) {
