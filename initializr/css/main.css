@@ -25,76 +25,17 @@ p {
 ul li {
 	list-style-type: none;
 }
-
-.heading {
-	float: left;
-}
-
-.main-container {
-	padding-top: 60px;
-}
-
-.main {
-    padding: 10px 0;
-		text-align:center;
-}
-
-.main article h1 {
-    font-size: 2em;
-	
-}
-
-
-.intro {
-    width: 45%;
-		text-align: left;		
-	 	display: inline-block;
-		vertical-align:top;	
-    }
-	 .intro-img {
-		width: 200px;
-		height: 250px;
-	 	display: inline-block;
-		vertical-align:top;
-	 	margin-right: 2%;
-	 	margin-bottom: 8%;
-	 }
-.main-side{
-		text-align: left;	
-	 	display: inline-block;
-		vertical-align:top;	
-		padding: 0px 1% 10px;	
-    } 
-
-.more {
-		margin-top: -1em;
-}
-
-.writing-top {
-		marging-bottom: 0;
-}
-
-#dropdown {
-		display: none; 
-}
-#dd:focus {
-		display:none;
-}
-#dd:focus + #dropdown {
-		display: block;
-}
-
-h1 {
-	font-family: 'Znikomit';
-	
-}
-
 ul {
 	padding:0;
 }
 li {
 	padding:0;
 	line-height: 1.4;
+}
+
+h1 {
+	font-family: 'Znikomit';
+	
 }
 
 ::-moz-selection {
@@ -120,6 +61,127 @@ hr {
 img {
     vertical-align: middle;
 }
+
+a { 
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.header-container {
+		width: 100%;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+header {
+		padding: 15px auto;
+}
+.heading {
+	float: left;
+}
+h1 {
+		padding: 0;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+		display: inline;
+		padding: 2px 5px;
+		float: right;
+}
+
+nav a {
+    display: block;
+    margin-bottom: 10px;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+}    
+
+nav a:hover,
+nav a:visited {
+    
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+.main-container {
+	padding-top: 60px;
+}
+
+.main {
+    padding: 10px 0;
+		text-align:center;
+}
+
+.main article h1 {
+    font-size: 2em;
+}
+.firstpart {
+		background-color: #bbb;
+		padding: 3% 0;
+}
+.intro {
+    width: 45%;
+		text-align: left;		
+	 	display: inline-block;
+		vertical-align:top;	
+}
+.intro-img {
+		width: 310px;
+	 	display: inline-block;
+		vertical-align:top;
+	 	padding: 3% 0;
+}
+.intro-img img {
+		width: 200px;
+		height: 250px;
+}
+.main-side{
+		text-align: left;	
+	 	display: inline-block;
+		vertical-align:top;	
+		padding: 0px 1% 10px;	
+    } 
+
+.more {
+		margin-top: -1em;
+}
+
+.writing-top {
+		marging-bottom: 0;
+}
+
+#dropdown {
+		display: none; 
+}
+#dd:focus {
+		display:none;
+}
+#dd:focus + #dropdown {
+		display: block;
+}
+
+
 
 .col a {
 		text-decoration:none;
@@ -197,80 +259,22 @@ img {
 		vertical-align: top;
 }
 
-a { 
-	text-decoration: none;
-}
-a:hover {
-	text-decoration: underline;
-}
 
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
+.secondpart {
+		background-color: #ccc;
 }
-
-textarea {
-    resize: vertical;
+.thirdpart {
+		background-color: #ddd;
+}
+.fourthpart {
+		background-color: #eee;
 }
 
 
 
 
-/* ===== Initializr Styles ==================================================
-   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
-   ========================================================================== */
-
-body {
-    /* font: 16px/26px Helvetica, Helvetica Neue, Arial; */
-    /*font-family: "Lucida Grande", "Lucida Sans Unicode", verdana, sans-serif;	*/
-}
-
-/*h1, h2, h3, h4, h5, h6 {
-	font-family: ff-tisa-web-pro, Georgia, Cambria, 'Times New Roman', Times, serif;
-}*/
-
-.wrapper {
-    width: 90%;
-    margin: 0 5%;
-}
-
-/* ==============
-    MOBILE: Menu
-   ============== */
-
-nav ul {
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-		display: inline;
-		padding: 2px 5px;
-		float: right;
-}
-
-nav a {
-    display: block;
-    margin-bottom: 10px;
-    padding: 15px 0;
-    text-align: center;
-    text-decoration: none;
-}    
-
-nav a:hover,
-nav a:visited {
-    
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
 
 
-/* ==============
-    MOBILE: Main
-   ============== */
 
 
 
@@ -278,32 +282,6 @@ nav a:hover {
 	border-top: thin solid black;
     padding: 20px 0;
 }
-
-/* ===============
-    ALL: IE Fixes
-   =============== */
-
-.ie7 .title {
-    padding-top: 20px;
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ==========================================================================
    Media Queries
