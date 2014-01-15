@@ -10,10 +10,10 @@ textarea {
     color: #222;
 }
 
-body {
+body {		
 		font-family:'Balthazar', 'Cardo', 'Petrona', serif;
     font-size: 1em;
-    line-height: 1.4;
+    line-height: 1.4em;
 		word-spacing: 0.1em;
 }
 
@@ -32,8 +32,11 @@ li {
 	padding:0;
 	line-height: 1.4;
 }
-
 h1 {
+		padding: 20px 0;
+}
+
+h1, .page h2, .p-heading, .topic h2 {
 	font-family: 'Znikomit';
 	
 }
@@ -62,11 +65,15 @@ img {
     vertical-align: middle;
 }
 
-a { 
+a:not(.img-link) { 
 	text-decoration: none;
+	color: #0d9970;
+	border-bottom: 1px dotted #0d9970;	
 }
-a:hover {
-	text-decoration: underline;
+
+a:active:not(.img-link), a:hover:not(.img-link) {
+	border-bottom: 1px solid #001f3f;
+	color: #001f3f;
 }
 
 fieldset {
@@ -94,35 +101,32 @@ header {
 .heading {
 	float: left;
 }
-h1 {
-		padding: 0;
-}
-nav ul {
+
+.header-nav ul {
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
+.header-nav ul li {
 		display: inline;
 		padding: 2px 5px;
 		float: right;
 }
 
-nav a {
+.header-nav a {
     display: block;
     margin-bottom: 10px;
-    padding: 15px 0;
     text-align: center;
     text-decoration: none;
 }    
 
-nav a:hover,
-nav a:visited {
+.header-nav a:hover,
+.header-nav a:visited {
     
 }
 
-nav a:hover {
-    text-decoration: underline;
+.header-nav a:hover {
+    
 }
 .main-container {
 	padding-top: 60px;
@@ -132,19 +136,18 @@ nav a:hover {
     padding: 10px 0;
 		text-align:center;
 }
-
-.main article h1 {
-    font-size: 2em;
+.firstpart, .secondpart, .thirdpart, .fourthpart {
+		padding: 0 0 8% 0;
 }
 .firstpart {
-		background-color: #bbb;
-		padding: 3% 0;
+		background-color:;
 }
 .intro {
     width: 45%;
 		text-align: left;		
 	 	display: inline-block;
 		vertical-align:top;	
+		padding: 3% 0;
 }
 .intro-img {
 		width: 310px;
@@ -156,6 +159,141 @@ nav a:hover {
 		width: 200px;
 		height: 250px;
 }
+.page, .topic {
+		background-color: #001f3f;
+		color: #ccc;
+		width: 100%;
+}
+.page h2, .topic h2 {
+		padding: 3% 0;
+		
+}
+
+.secondpart {
+		background-color: #;
+}
+/*.writing, .port, .reading {
+		background-color: #001f3f;
+		color: #ccc
+}*/
+.writingall {
+		text-align: left;
+		margin-left: 30%;
+}
+.writingall ul li {
+		font-size: 1.2em;
+}
+.writing-article, .topic h2 {
+		width:73%;
+		display: inline-block;
+		text-align: left;
+		vertical-align: top;
+}
+.writing-aside {
+		width:25%;
+		display: inline-block;
+		text-align: left;
+		vertical-align: top;
+}
+
+.thirdpart {
+		background-color: #;
+}
+.p-img {
+		margin:10px;
+		width: 80%;
+		height: 130px;
+}
+.p-heading {
+		text-align:center;
+}
+
+.descrip {
+		text-align: left;
+		padding-left: 15px;
+}
+.portfolio {
+		width: 310px;
+		height: 450px;
+		border: 1px dotted gray;
+		display: inline-block;
+		margin: 10px;
+		vertical-align:top;
+}
+
+.fourthpart {
+		background-color: #;
+}
+.readingall ul li {
+		display: inline;
+}
+.r-img {
+		height: 250px;
+		width: 200px;
+		border: 1px dotted gray;
+		display: inline-block;
+		padding: 5px;
+		margin: 10px;
+}
+
+.footer-container footer {
+		text-align: center;		
+		border-top: thin solid black;
+    padding: 20px 0;
+}
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+		.header-nav a {
+        float: left;
+        margin: 0 1.7%;
+        padding: 25px 2%;
+        margin-bottom: 0;
+    }
+
+    .header-nav li:first-child a {
+        margin-left: 0;
+    }
+
+    .header-nav li:last-child a {
+        margin-right: 0;
+    } 
+		,intro {
+				width: 100%;
+		}
+		
+		========================
+    INTERMEDIATE: IE Fixes
+   ======================== 
+
+    .header-nav ul li {
+        display: inline;
+    }
+
+    .oldie .header-nav a {
+        margin: 0 0.7%;
+    }
+}
+
+@media only screen and (min-width: 768px){
+		.intro {
+				width: 45%;
+		}
+		.intro, .intro-img {
+				vertical-align: middle;
+		}
+}
+
+@media only screen and (min-width: 1140px)
+
+
+
+
+/* unused css 
 .main-side{
 		text-align: left;	
 	 	display: inline-block;
@@ -181,94 +319,14 @@ nav a:hover {
 		display: block;
 }
 
-
-
 .col a {
 		text-decoration:none;
 }
-
-.p-img {
-		margin:10px;
-		width: 80%;
-}
-.p-heading {
-		text-align:center;
-}
-
-.port {
-		background-color: #8f6;
-}
-
-.descrip {
-		text-align: left;
-		padding-left: 15px;
-}
-.portfolio {
-		width: 310px;
-		border: 1px dotted gray;
-		display: inline-block;
-		margin: 10px;
-		vertical-align:top;
-}
-
-.col{
-		 text-align: center;
-}
-
-.r-img {
-		height: 250px;
-		width: 200px;
-		border: 1px dotted gray;
-		display: inline-block;
-		padding: 5px;
-		margin: 10px;
-}
-
 .col-book ul li {
 		display: inline;
 }
 
 
-.page h2 {
-		text-align:center;
-}
-
-.reading {
-		background-color: #ccc;
-}
-.writingall {
-		text-align: left;
-		margin-left: 30%;
-}
-
-.writing {
-		background-color: purple;
-}
-
-.writing-aside {
-		width:25%;
-		display: inline-block;
-		text-align: left;
-		vertical-align: top;
-}
-
-.writing-article {
-		width:73%;
-		display: inline-block;
-		text-align: left;
-		vertical-align: top;
-}
-
-
-.secondpart {
-		background-color: #ccc;
-}
-.thirdpart {
-		background-color: #ddd;
-}
-.fourthpart {
-		background-color: #eee;
-}
 
 
 
@@ -278,61 +336,63 @@ nav a:hover {
 
 
 
-.footer-container footer {
-	border-top: thin solid black;
-    padding: 20px 0;
-}
 
-/* ==========================================================================
+
+
+
+
+
+
+ ==========================================================================
    Media Queries
-   ========================================================================== */
+   ========================================================================== 
 
 @media only screen and (min-width: 480px) {
 
+
 /* ====================
     INTERMEDIATE: Menu
-   ==================== */
+   ==================== 
 
-    nav a {
+    .header-nav a {
         float: left;
-        
         margin: 0 1.7%;
         padding: 25px 2%;
         margin-bottom: 0;
     }
 
-    nav li:first-child a {
+    .header-nav li:first-child a {
         margin-left: 0;
     }
 
-    nav li:last-child a {
+    .header-nav li:last-child a {
         margin-right: 0;
     }
 
 /* ========================
     INTERMEDIATE: IE Fixes
-   ======================== */
+   ======================== 
 
-    nav ul li {
+    .header-nav ul li {
         display: inline;
     }
 
-    .oldie nav a {
+    .oldie .header-nav a {
         margin: 0 0.7%;
     }
 }
 
 @media only screen and (min-width: 768px) {
 
-/* ============
+ ============
     WIDE: Menu
-   ============ */
+   ============ 
 
     .title {
         float: left;
     }
 
-    nav {
+    .header-nav {
         float: right;
     }
 
@@ -351,10 +411,10 @@ nav a:hover {
     Maximal Width
    =============== */
 
-    .wrapper {
-        width: 1026px; /* 1140px - 10% for margins */
+    /*.wrapper {
+        width: 1026px; /* 1140px - 10% for margins 
         margin: 0 auto;
-    }
+    }*/
 }
 
 /* ==========================================================================
