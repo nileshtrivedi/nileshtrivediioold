@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+  <head lang="en">
+    <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+  	<meta name="author" content="cssbubble" >
+
+    <title> A Quick Introduction To Ruby</title>
+    
+		<link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Balthazar|Cardo|Petrona|Open+Sans:300italic' rel='stylesheet' type='text/css'>    
+  </head>
+
+  <body>
+
+		<div class="header-container">
+    	<header class="wrapper clearfix">
+				<div class="heading">
+					<h1><a href="index.html">nilesh trivedi</a></h1>
+				</div>
+
+        <nav class="header-nav">
+     	    <ul>
+     	      <li><a href="https//www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
+            <li><a href="https//www.github.com/nileshtrivedi" target="_blank">github</a></li>
+						<li><a href="readings.html" target="_blank">readings</a></li>
+            <li><a href="writingall.html" target="_blank">writing</a></li>
+						<li><a href="portfolio.html" target="_blank">portfolio</a></li>
+						<li><a href="music.html" target="_blank">music</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div><!-- header-container -->
+
+		<div class="main-container">
+	   	<div class="main wrapper clearfix">
+
+				<div class="topic">
+					<h2 class="writing"> A Quick Introduction To Ruby</h2>				
+				</div>					
+							
+				<div class="writing-article">
+					<p class="excerpt" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #b1b2b9; border-top-width: 1px; border-top-style: solid; border-top-color: #b1b2b9; padding-top: 18px; padding-right: 10px; padding-bottom: 18px; padding-left: 10px; font-family: Helvetica, Arial; font-size: 15px; line-height: 1.4em; background-color: #dddddd;">I wrote a no-nonsense introduction to Ruby for people who already know how to program in some other language. This article does not waste time with programming basics or syntax details which one can learn easily anyway. I hope this gets you started in the beautiful, happy world of Ruby.</p><p><span style="color: #222222; font-family: arial, sans-serif;"><span style="border-collapse: collapse;"><span style="font-family: arial; font-size: small; border-collapse: separate; color: #000000;"><span style="font-size: medium;"><!--more--><strong>Introduction to Ruby</strong></span><p />Ruby is an interpreted object-oriented programming language. This means you have classes, objects, instance methods, instance variables, class methods, class variables and so on. Ruby also supports other programming paradigms like functional programming, ad-hoc scripting etc. I will directly jump to features which are unique to Ruby - especially if you are coming from C, C++, Java background. </span></span></span></p><div class="im"><strong>Everything is an object</strong><br />Yes,&nbsp;<strong>everything</strong>&nbsp;is an object. Integers, Floats, Booleans, Strings, Arrays, Hash - everything is an object. Even "<strong>Class</strong>" and "<strong>Module</strong>" are objects. You can have code like:<p /><span style="font-family: courier new, monospace;">&gt;&gt; 24.to_s + true.to_s</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">=&gt; "24true"</span><p /></div><p><strong>Classes are open</strong><br />Classes and Modules in Ruby are not set in stone after loading. Methods can be added, modified or removed from such classes at any point of time in the program execution. For example:<p /><span style="font-family: courier new, monospace;">&gt;&gt; s = String.new("hi")</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&gt;&gt; puts s.upcase</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">=&gt; "HI"<p /></span><span style="font-family: courier new, monospace;">#Now let's modify the built-in method dynamically. No restart is needed.</span></p><div class="im"><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&gt;&gt; class String; def upcase; "abc"; end; end</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&gt;&gt; puts s.upcase</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">=&gt; "abc"</span><p /></div><p>We have modified the method "upcase", which is built in the core Ruby class "<strong>String</strong>", dynamically. You can do this with any other class. This means that features can be added and removed as you wish. In fact, even the core language features can be improved without ever restarting the program. It gives the developers tremendous flexibility in designing frameworks and applications. If a library has a bug, you can fix it yourself without touching its code base. You can also add features to ruby/library at runtime.&nbsp;<p /><strong>Syntax is delightful</strong><br />Ruby does away with a lot of verbal overhead with some syntactic sugar. Consider:</p><div class="im"><br />1. Parantheses are optional while calling methods. Instead of&nbsp;<p /><span style="font-family: courier new, monospace;">&gt;&gt; employee.promote("manager")</span><p />you can write:<p /><span style="font-family: courier new, monospace;">&gt;&gt; employee.promote "manager"</span><p />2. Operators like +, -, =, ==, * , /, [] are implemented as regular methods and there is nothing special about them. You can still use them as you are used to. For example:<p /><span style="font-family: courier new, monospace;">&gt;&gt; a + b</span><p />is equivalent to:<p /><span style="font-family: courier new, monospace;">&gt;&gt; a.+(b) # calls the "+" method on object "a" with "b" as the method argument</span><p />When you write:<p /><span style="font-family: courier new, monospace;">&gt;&gt;&nbsp;obj.name&nbsp;= "hi"</span><p />the code that actually gets executed is this:<p /><span style="font-family: courier new, monospace;">&gt;&gt;&nbsp;obj.name=("hi")</span><p />so "hi" is passed as an argument to a method called "name=" (note the equal sign).&nbsp;<p /><strong>Encapsulation by default.</strong><br />Java has a convention of using getter and setter methods like:<p /><span style="font-family: courier new, monospace;">String getName() {</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&nbsp; return&nbsp;this.name;</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">}</span><p />and&nbsp;<p /><span style="font-family: courier new, monospace;">void setName(String name) {</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&nbsp;&nbsp;this.name&nbsp;= name;</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">}</span><p /></div><p>This kind of design is good practice because it hides the internal variable "<strong>this.name</strong>" from the outside world and protects against misuse. However, the code calling getters and setters is too verbose and painful.</p><div class="im">In Ruby, you can do:<p /><span style="font-family: courier new, monospace;">def name</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&nbsp; @name</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">end</span><p /><span style="font-family: courier new, monospace;">def name=(name)</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&nbsp; @name = name</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">end</span><p />And then you can simply use:<p /><span style="font-family: courier new, monospace;">&gt;&gt;&nbsp;obj.name</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">=&gt; "xyz"</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&gt;&gt;&nbsp;obj.name&nbsp;= "abc"</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&gt;&gt;&nbsp;obj.name</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">=&gt; "abc"</span><p />So you get the best of both worlds. Getters and setters so that data is encapsulated as well as a code syntax which looks like&nbsp;<strong>as if you were just using a property variable normally</strong>. Instance variables are private by default so encapsulation is enforced.<p /></div><p>Still shorter and prevalent way of defining the above two methods is:<p /><span style="font-family: courier new, monospace;">attr_accessor :name</span><br /><span style="font-family: courier new, monospace;"># 6 lines of code reduced to one. More importantly, look how readable the code becomes. It's declarative.</span><p />We are calling a method "<span style="font-family: courier new, monospace;">attr_accessor</span>" with a string argument "<span style="font-family: courier new, monospace;">name</span>". This methods&nbsp;<strong>creates the getter and setter methods dynamically</strong>&nbsp;which are equivalent to the ones we wrote above. Isn't metaprogramming awesome? Code that writes code for us. :) Note that&nbsp;<span style="font-family: courier new, monospace;">attr_accessor</span>&nbsp;is a regular method and not a keyword. This means that full power of ruby is available to you even when you are defining classes. No need to worry about compile-time vs runtime. Everything is runtime (almost).</p><div class="im"><br /><strong>Modules</strong><br />Multiple-inheritance (having more than one superclass) is a tricky issue in programming. Tricky because it causes ambiguity in method lookups. Lets say class&nbsp;<strong>A</strong>&nbsp;inherits from class&nbsp;<strong>B</strong>&nbsp;and class&nbsp;<strong>C</strong>. Both&nbsp;<strong>B</strong>&nbsp;and&nbsp;<strong>C</strong>&nbsp;have a method called "<span style="font-family: courier new, monospace;">say_hello()</span>". Now see this code:<p /><span style="font-family: courier new, monospace;">obj = A.new</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">obj.say_hello()</span><p />Which method should be executed now? The one in class&nbsp;<strong>B</strong>&nbsp;or class&nbsp;<strong>C</strong>? C++ had a messy solution for this with virtual functions where as Java simply wiped its hands off by enforcing single-inheritance (single parent per class). But most real-world objects inherit their behaviour from multiple parents. For eg., Car should be the sub-class of both FourWheeler and PetrolVehicle. This kind of modelling becomes difficult in Java.<p />Ruby brings the concept of&nbsp;<strong>Module</strong>. Although a class can have only one immediate superclass, it can&nbsp;<strong>include</strong>&nbsp;as many modules as it needs. Including a module is almost similar to inheriting from it. So we could write our class as:<p /><span style="font-family: courier new, monospace;">class Car &lt; Vehicle</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&nbsp; include FourWheeler</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&nbsp; include PetrolVehicle</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">end</span><p />The method lookup ambiguity is resolved with a specific method lookup order. Read more on this topic as this is one of the most fundamental aspects of Ruby.<p /><strong>String interpolation</strong><br />How often have you seen code like this? :<p /><span style="font-family: courier new, monospace;">"my name is " +&nbsp;obj.name() + " and I live in " + obj.city() + " city."</span><p />Functional but ugly code. In Ruby you can do the above but there is a cleaner and more preferred method.<p /><span style="font-family: courier new, monospace;">"my name is #{obj.name} and I live in #{obj.city}."</span><p /></div><div class="im"><strong>Code is data</strong><br />Ruby supports meta-programming - which means that code can be used, passed around, and manipulated as any form of data. You can write methods which accept a block of code - apart from the regular data variables - as an argument. This make Ruby really powerful. Read more on&nbsp;<strong>Blocks</strong>,&nbsp;<strong>Procs</strong>,&nbsp;<strong>Yield</strong>&nbsp;and&nbsp;<strong>Lambdas</strong>.<p /></div><p><span style="font-family: courier new, monospace;"># Standard way of programming.</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&gt;&gt; "hi".upcase # returns "HI"</span><p /><span style="font-family: courier new, monospace;"># Dynamic programming</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;"># works same as above but notice that the name of method to call is a string so can be decided at runtime</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&gt;&gt; "hi".send("upcase") # returns "HI"</span><strong style="font-family: courier new, monospace;"><br /></strong><br />Here, you are sending the string object (<span style="font-family: courier new, monospace;">"hi"</span>) a message called "<span style="font-family: courier new, monospace;">upcase</span>". If a method exists with this name, it will be executed. So method calling is basically message-passing. Makes it easy to design actor-based systems.<strong><p /></strong>If you have read&nbsp;<strong>SICP</strong>, you would of course remember the methods map, filter, enumerate. What a revelation they were! They are implemented beautifully in Ruby using blocks.<p /><span style="font-family: courier new, monospace;"># An array of students is given. Promote all students who are boys and whose age is greater than 12 to the next class and return an array of their names</span><br style="font-family: courier new, monospace;" /><span style="font-family: courier new, monospace;">&gt;&gt; students.select { |s| s.is_boy? &amp;&amp; s.age &gt; 12 }.each { |s| s.promote }.collect(&amp;:name)</span><br style="font-family: courier new, monospace;" /><strong><br />That's it. No nested loops, and iterators/enumerators to worry about. The code here is simply the procedural expression of your requirements! You can easily see how easy it is to fix bugs in this code. Abstraction and hiding details is a good thing and Ruby provides techniques to do it really well. It is also a great vehicle for developing higher-level domain-specific languages.<br /></strong><br />Meta-programming is my favorite aspect of Ruby. All the power of Lisp. And what pretty syntax it has! :)<strong><br /></strong><br />Cool ? :)<p />I hope this gets you excited about this language. There are tons of really nice features that we have come to love, but you can discover them on your own. Feel free to ask any questions or doubts you have. And remember, the underlying philosophy of Ruby design was:&nbsp;<strong>"Programmer's happiness"</strong>. :)</p><p>&nbsp;</p>
+				</div>
+
+				<hr>
+
+				<div class="writingall">
+					<h4> Other articles </h4>
+            		<ul>
+            			<li><a href="blog13"> A bottom-up explanation of general relativity</a></li>
+									<li><a href="blog12"> Reciprocity In Open Access</a></li>
+									<li><a href="blog11"> Use An Algorithm As Your Password</a></li>
+									<li><a href="blog10">How much is enough</a></li>
+        					<li><a href="blog9">Search results are the only relevant advertise</a></li>
+        					<li><a href="blog8">Live coding</a></li>
+									<li><a href="blog7">936 months</a></li>
+	       					<li><a href="blog6"> Why I Will Not Buy Asus Transformer Prime</a></li>
+									<li><a href="blog5"> My letter to CERT-IN</a></li>
+        					<li><a href="blog4"> Should We Philosophize ?</a></li>
+									<li><a href="blog3"> A Quick Introduction To Ruby</a></li>
+	       					<li><a href="blog2"> Monsoon Treks In Maharashtra</a></li>
+									<li><a href="blog1">Ubuntu 10.04 (Lucid Lynx) on Dell Vostro 1520</a></li>
+								</ul>
+	      </div>
+
+      </div> <!-- #main -->
+    </div> <!-- #main-container -->
+
+		<div class="footer-container">
+			<footer class="wrapper clearfix">
+				<nav class="footer-nav">
+     	    <ul>
+	   	      <li><a href="https//www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
+            <li><a href="https//www.github.com/nileshtrivedi" target="_blank">github</a></li>
+						<li><a href="readings.html" target="_blank">readings</a></li>
+            <li><a href="writingall.html" target="_blank">writing</a></li>
+						<li><a href="portfolio.html" target="_blank">portfolio</a></li>
+						<li><a href="music.html" target="_blank">music</a></li>
+          </ul>
+        </nav>
+      </footer>
+		</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+        <script src="js/main.js"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src='//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+
+						$( "#dropdown" ).click(function() {
+$( "dd" ).click();
+});
+
+				</script>
+
+
+  </body>
+
+</html>

@@ -11,10 +11,12 @@ textarea {
 }
 
 body {		
-		font-family:'Balthazar', 'Cardo', 'Petrona', serif;
+		/*font-family:'Balthazar', 'Cardo', 'Petrona', serif;*/
+font-family: 'Alegreya Sans', sans-serif;
     font-size: 1em;
     line-height: 1.4em;
 		word-spacing: 0.1em;
+		text-align: center;
 }
 
 p {
@@ -76,11 +78,6 @@ a:active:not(.img-link), a:hover:not(.img-link) {
 	color: #001f3f;
 }
 
-
-.header-container {
-		width: 100%;
-}
-
 .wrapper {
     width: 90%;
     margin: 0 5%;
@@ -124,10 +121,7 @@ header {
 	padding-top: 60px;
 }
 
-.main {
-    padding: 10px 0;
-		text-align:center;
-}
+
 .firstpart, .secondpart, .thirdpart, .fourthpart {
 		padding: 0 0 8% 0;
 }
@@ -144,7 +138,7 @@ header {
 .intro-img {
 		width: 310px;
 	 	display: inline-block;
-		vertical-align:top;
+		vertical-align: middle;
 	 	padding: 3% 0;
 }
 .intro-img img {
@@ -175,7 +169,7 @@ header {
 .writingall ul li {
 		font-size: 1.2em;
 }
-.writing-article, .topic h2 {
+.writing-article, .topic h2, .music {
 		width:73%;
 		display: inline-block;
 		text-align: left;
@@ -233,20 +227,33 @@ header {
 		border-top: thin solid black;
     padding: 20px 0;
 }
+.footer-nav ul li {
+		display: inline;
+		padding: 0 10px;
+}
 
+/* unused css */
 
+/*.header-container {
+		width: 100%;
+}*/
 /* ==========================================================================
    Media Queries
    ========================================================================== */
 
 @media only screen and (max-width: 480px) {
 		.header-nav ul li {
-				padding: 22px 5px;
+				padding: 10px 5px;
+				display: inline-block;
+				
 		}
-		.heading, .header-nav {
-				text-align: center;
+		.header-nav a {
+				display: inline-block;
 		}
-		.intro {
+		.heading {
+				display: block;
+		}
+		.intro, .intro-img {
 				width: 100%;
 		}
 }
@@ -292,143 +299,16 @@ header {
 		}
 }
 
-@media only screen and (min-width: 1140px)
-
-
-
-
-/* unused css 
-.main-side{
-		text-align: left;	
-	 	display: inline-block;
-		vertical-align:top;	
-		padding: 0px 1% 10px;	
-    } 
-
-.more {
-		margin-top: -1em;
-}
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-textarea {
-    resize: vertical;
-}
-
-
-.writing-top {
-		marging-bottom: 0;
-}
-
-#dropdown {
-		display: none; 
-}
-#dd:focus {
-		display:none;
-}
-#dd:focus + #dropdown {
-		display: block;
-}
-
-.col a {
-		text-decoration:none;
-}
-.col-book ul li {
-		display: inline;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- ==========================================================================
-   Media Queries
-   ========================================================================== 
-
-@media only screen and (min-width: 480px) {
-
-
-/* ====================
-    INTERMEDIATE: Menu
-   ==================== 
-
-    .header-nav a {
-        float: left;
-        margin: 0 1.7%;
-        padding: 25px 2%;
-        margin-bottom: 0;
-    }
-
-    .header-nav li:first-child a {
-        margin-left: 0;
-    }
-
-    .header-nav li:last-child a {
-        margin-right: 0;
-    }
-
-/* ========================
-    INTERMEDIATE: IE Fixes
-   ======================== 
-
-    .header-nav ul li {
-        display: inline;
-    }
-
-    .oldie .header-nav a {
-        margin: 0 0.7%;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-
- ============
-    WIDE: Menu
-   ============ 
-
-    .title {
-        float: left;
-    }
-
-    .header-nav {
-        float: right;
-    }
-
-/* ============
-    WIDE: Main
-   ============ */
-
-    
-
-    
-}
-
 @media only screen and (min-width: 1140px) {
 
 /* ===============
     Maximal Width
    =============== */
 
-    /*.wrapper {
-        width: 1026px; /* 1140px - 10% for margins 
+    .wrapper {
+        width: 1026px; /* 1140px - 10% for margins */
         margin: 0 auto;
-    }*/
+    }
 }
 
 /* ==========================================================================
