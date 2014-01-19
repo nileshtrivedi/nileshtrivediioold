@@ -2,6 +2,11 @@
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
 
+@font-face {
+		font-family: Znikomit;
+		src: url("Znikomit.otf");
+}
+
 html,
 button,
 input,
@@ -12,7 +17,7 @@ textarea {
 
 body {		
 		/*font-family:'Balthazar', 'Cardo', 'Petrona', serif;*/
-font-family: 'Alegreya Sans', sans-serif;
+		font-family: 'Alegreya Sans', 'Times New Roman';
     font-size: 1em;
     line-height: 1.4em;
 		word-spacing: 0.1em;
@@ -34,9 +39,6 @@ li {
 	padding:0;
 	line-height: 1.4;
 }
-/*h1 {
-		padding: 20px 0;
-}*/
 
 h1, .page h2, .p-heading, .topic h2 {
 	font-family: 'Znikomit';
@@ -67,13 +69,13 @@ img {
     vertical-align: middle;
 }
 
-a:not(.img-link) { 
+a:not(.img-link):not(.heading) { 
 	text-decoration: none;
 	color: #0d9970;
 	border-bottom: 1px dotted #0d9970;	
 }
 
-a:active:not(.img-link), a:hover:not(.img-link) {
+a:hover:not(.img-link) {
 	border-bottom: 1px solid #001f3f;
 	color: #001f3f;
 }
@@ -86,10 +88,9 @@ a:active:not(.img-link), a:hover:not(.img-link) {
 header {
 		padding: 15px auto;
 }
-.heading {
-	float: left;
-}
+
 .header-nav {
+		padding: 1em; 
 }
 .header-nav ul {
     margin: 0;
@@ -99,11 +100,9 @@ header {
 .header-nav ul li {
 		display: inline;
 		padding: 2px 5px;
-		float: right;
 }
 
 .header-nav a {
-    display: block;
     margin-bottom: 10px;
     text-align: center;
     text-decoration: none;
@@ -114,20 +113,14 @@ header {
     
 }
 
-.header-nav a:hover {
-    
-}
 .main-container {
 	padding-top: 60px;
 }
 
-
 .firstpart, .secondpart, .thirdpart, .fourthpart {
 		padding: 0 0 8% 0;
 }
-.firstpart {
-		background-color:;
-}
+
 .intro {
     width: 45%;
 		text-align: left;		
@@ -142,10 +135,10 @@ header {
 	 	padding: 3% 0;
 }
 .intro-img img {
-		width: 200px;
-		height: 250px;
+		width: 201.6px;
+		height: 219.1px;
 }
-.page, .topic {
+/*.page, .topic {
 		background-color: #001f3f;
 		color: #ccc;
 		width: 100%;
@@ -153,15 +146,8 @@ header {
 .page h2, .topic h2 {
 		padding: 3% 0;
 		
-}
-
-.secondpart {
-		background-color: #;
-}
-/*.writing, .port, .reading {
-		background-color: #001f3f;
-		color: #ccc
 }*/
+
 .writingall {
 		text-align: left;
 		margin-left: 30%;
@@ -182,9 +168,6 @@ header {
 		vertical-align: top;
 }
 
-.thirdpart {
-		background-color: #;
-}
 .p-img {
 		margin:10px;
 		width: 80%;
@@ -197,9 +180,10 @@ header {
 .descrip {
 		text-align: left;
 		padding-left: 15px;
+		padding-right: 3px;
 }
 .portfolio {
-		width: 310px;
+		width: 300px;
 		height: 450px;
 		border: 1px dotted gray;
 		display: inline-block;
@@ -207,9 +191,7 @@ header {
 		vertical-align:top;
 }
 
-.fourthpart {
-		background-color: #;
-}
+
 .readingall ul li {
 		display: inline;
 }
@@ -244,15 +226,15 @@ header {
 @media only screen and (max-width: 480px) {
 		.header-nav ul li {
 				padding: 10px 5px;
-				display: inline-block;
+				display: inline;
 				
 		}
 		.header-nav a {
 				display: inline-block;
 		}
-		.heading {
+		/*.header-nav ul li .heading {
 				display: block;
-		}
+		}*/
 		.intro, .intro-img {
 				width: 100%;
 		}
@@ -260,10 +242,10 @@ header {
 
 @media only screen and (min-width: 480px) {
 		.header-nav a {
-        float: left;
+       /* float: left;
         margin: 0 1.7%;
         padding: 1.2em 2% 2% 2%;
-        margin-bottom: 0;
+        margin-bottom: 0;*/
     }
 
     .header-nav li:first-child a {
