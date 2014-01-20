@@ -1,0 +1,409 @@
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+@font-face {
+		font-family: Znikomit;
+		src: url("Znikomit.otf");
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {		
+		font-family: 'Alegreya Sans', 'Exo 2', 'Times New Roman';
+    font-size: 1em;
+    line-height: 1.4em;
+		word-spacing: 0.1em;
+		text-align: center;
+}
+
+p {
+	font-size: 20px;
+	line-height: 27px;
+}
+
+ul li {
+	list-style-type: none;
+}
+ul {
+	padding:0;
+}
+li {
+	padding:0;
+	line-height: 1.4;
+}
+
+h1, .p-heading {
+	font-family: 'Znikomit';
+	
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+		clear: both;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a:not(.img-link):not(.heading) { 
+	text-decoration: none;
+	color: #0d9970;
+	border-bottom: 1px dotted #0d9970;	
+}
+
+a:hover:not(.img-link) {
+	border-bottom: 1px solid #001f3f;
+	color: #001f3f;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+header {
+		padding: 15px auto;
+}
+
+.header-nav {
+		padding: 1em; 
+}
+.header-nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav ul li {
+		display: inline;
+		padding: 2px 5px;
+}
+
+.header-nav a {
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+}    
+.header-nav li:first-child a {
+		color: #0d9970;
+}
+
+.main-container {
+	padding-top: 5px;
+}
+
+.firstpart, .secondpart, .thirdpart, .fourthpart {
+		padding: 0 0 8% 0;
+}
+
+.intro {
+    width: 45%;
+		text-align: left;		
+	 	display: inline-block;
+		vertical-align:top;	
+		padding: 3% 0;
+}
+.intro-img {
+		width: 310px;
+	 	display: inline-block;
+		vertical-align: middle;
+	 	padding: 3% 0;
+}
+.intro-img img {
+		width: 201.6px;
+		height: 219.1px;
+}
+
+.writingall {
+		text-align: left;
+		margin-left: 30%;
+}
+.writingall ul li {
+		font-size: 1.2em;
+		line-height: 1.8em;
+}
+.writing-article, .topic h2, .music {
+		width:73%;
+		display: inline-block;
+		text-align: left;
+		vertical-align: top;
+}
+.writing-aside {
+		width:25%;
+		display: inline-block;
+		text-align: left;
+		vertical-align: top;
+}
+
+.p-img {
+		margin:10px;
+		width: 80%;
+		height: 130px;
+}
+.p-heading {
+		text-align:center;
+}
+
+.descrip {
+		text-align: left;
+		padding-left: 15px;
+		padding-right: 3px;
+}
+.portfolio {
+		width: 300px;
+		height: 450px;
+		border: 1px dotted gray;
+		display: inline-block;
+		margin: 10px;
+		vertical-align:top;
+}
+
+
+.readingall ul li {
+		display: inline;
+}
+.r-img {
+		height: 250px;
+		width: 200px;
+		border: 1px dotted gray;
+		display: inline-block;
+		padding: 5px;
+		margin: 10px;
+}
+
+.footer-container footer {
+		text-align: center;		
+		border-top: thin solid #ccc;
+    padding: 20px 0;
+}
+.footer-nav ul li {
+		display: inline;
+		padding: 0 10px;
+}
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (max-width: 480px) {
+		.header-nav ul li {
+				padding: 10px 5px;
+				display: inline;
+				
+		}
+		.header-nav a {
+				display: inline-block;
+		}
+		
+		.intro, .intro-img {
+				width: 100%;
+		}
+}
+
+@media only screen and (min-width: 480px) {
+		/*.header-nav a {
+       
+    }
+
+    .header-nav li:first-child a {
+        margin-left: 0;
+    }
+
+    .header-nav li:last-child a {
+        margin-right: 0;
+    } */
+		.intro {
+				width: 100%;
+		}
+		
+		========================
+    INTERMEDIATE: IE Fixes
+   ======================== 
+
+    .header-nav ul li {
+        display: inline;
+    }
+
+    .oldie .header-nav a {
+        margin: 0 0.7%;
+    }
+}
+
+@media only screen and (min-width: 700px){
+		.intro {
+				width: 45%;
+		}
+		.intro, .intro-img {
+				vertical-align: middle;
+		}
+}
+
+@media only screen and (min-width: 1140px) {
+
+/* ===============
+    Maximal Width
+   =============== */
+
+    .wrapper {
+        width: 1026px; /* 1140px - 10% for margins */
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+
