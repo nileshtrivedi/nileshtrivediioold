@@ -11,29 +11,27 @@
     <meta name="description" content="">
   	<meta name="author" content="cssbubble" >
 
-    <title>Live Coding</title>
+    <title>How much is enough</title>
     
 		<link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link href='http://fonts.googleapis.com/css?family=Balthazar|Cardo|Petrona|Open+Sans:300italic' rel='stylesheet' type='text/css'>    
+		<link href='http://fonts.googleapis.com/css?family=Exo+2:300|Alegreya+Sans:300|Alef' rel='stylesheet' type='text/css'>  <    
   </head>
 
   <body>
 
 		<div class="header-container">
     	<header class="wrapper clearfix">
-				<div class="heading">
-					<h1><a href="index.html">nilesh trivedi</a></h1>
-				</div>
-
+				
         <nav class="header-nav">
      	    <ul>
-     	      <li><a href="https//www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
-            <li><a href="https//www.github.com/nileshtrivedi" target="_blank">github</a></li>
-						<li><a href="readings.html" target="_blank">readings</a></li>
-            <li><a href="writingall.html" target="_blank">writing</a></li>
-						<li><a href="portfolio.html" target="_blank">portfolio</a></li>
-						<li><a href="music.html" target="_blank">music</a></li>
+     	       <li><h1><span class="heading">nilesh trivedi</span></h1></li>
+         		<li><a href="portfolio.html">portfolio</a></li>
+	   	      <li><a href="writingall.html">writing</a></li>
+						<li><a href="music.html">music</a></li>
+						<li><a href="readings.html">readings</a></li>
+						<li><a href="https://www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
+            <li><a href="https://www.github.com/nileshtrivedi" target="_blank">github</a></li>
           </ul>
         </nav>
       </header>
@@ -43,40 +41,62 @@
 	   	<div class="main wrapper clearfix">
 
 				<div class="topic">
-					<h2 class="writing">Live Coding </h2>				
+					<h2 class="writing">How much is enough</h2>				
 				</div>					
-
+							
 				<div class="writing-article">
-					<h4> date </h4>
-					<p>Bret Victor&#39;s presentation <a href="http://vimeo.com/36579366">Inventing On Principle</a> was thought-provoking. 
-As a programmer, we have always known this but his emphasis on the point, that an immediate connection to creative output 
-is enormously valuable, forces us to rethink about our tools and how we can improve them.<p /> 
+					<h4> 10th July 2012 </h4>
+					<p>How Much Is Enough? : A Formula for FU Money</p>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
 
-As I was watching his demo, I realized that the demo relied on certain assumptions. His prototype was for drawing an image 
-on HTML5 canvas. One can easily imagine such a code editor for physical simulations as well. Both of these however are 
-<b>passive</b> and <b>visual</b> in nature. An image is both static and passive, whereas a simulation is dynamic, but 
-still passive. Both are visually perceived, so they can be grasped in an instant.<p /> 
+<p>FU money is defined as: <i>any amount of money allowing perpetuation of wealth necessary to maintain a desired lifestyle without needing employment or assistance from anyone</i>. With only interest (return on investments) as an income, this should last all of the remaining years of my life, while accounting for my lifestyle and inflation. I was curious to see what the formula for this (while considering inflation and life expectancy) would look like and this is what I came up with. I made certain assumptions to simplify the exercise but the point is to come up with an analytical formula and understand its nature to see the impact of each variable. I have ignored things like taxes, big life events etc. to keep this simple.</p>
 
-Most programs are not passive. Code is supposed to <b>do</b> things - manipulate the state of the universe. It&#39;s the correct 
-<b>behaviour</b> that we are trying to achieve with our code. I started thinking about how we can immediately visualize the 
-behaviour of code. Behaviour is such a transitive thing - it occupies time. Similar to audio (eg. music), visualizing the entire 
-personality of code appears time-consuming. Code can&#39;t be summarized by data.<p /> 
+<p>I keep hearing this from people: if you can beat inflation by 3%, your FU money is `100/3 = 33` times your current annual spending. I suspected this to be incorrect because (i) this doesn't take care of my finite little life. Who wants perpetual income long after I'm dead? and (ii) (interest - inflation) did not seem to be the critical variable. I did the analysis and it turned out that the variable that really matters is (1 + interest)/(1 + inflation). This is close to (interest - inflation) but may differ significantly in low-inflation countries. Also found that planning for infinite income may overestimate the FU money by as much as `50%`!</p>
+<p>First, let me define a few terms:</p>
+<p>
+`S_n` : Savings at the start of the `n^(th)` year (counting from `0`).<br/>
+`E_n` : Expenses for the `n^(th)` year<br/>
+`i` &nbsp; &nbsp;: % Rate of return (like interest) on my savings<br/>
+`f` &nbsp;: Inflation rate (% increase in my expenses every year, assuming that my lifestyle remains the same)<br/>
+`N` &nbsp;:  Numbers of years remaining in my life (estimated)<br/>
+</p>
 
-But can&#39;t it really? Almost immediately I realized that code itself can be used to capture the expected behaviour of 
-another piece of code. By the means of <b>executable tests</b>. So the boolean test results are sufficient to explain whether 
-a piece of code works correctly or not. It is possible to visualize the health of a codebase in an instant.<p /> 
+<p>Every year, we earn some income as interest on our savings, spend some money as that year's expenses, and transfer the remaining back to the savings. When interest income is less than expense for the year, we will need to take funds out of savings. With time, savings would dwindle away each year and ultimately reach zero. Our hope is that this point comes just after our dealth so that our entire life is taken care of.</p>
 
-So I sat down and put together a minimal prototype for this. You can try it here: 
-<a href="http://www.nileshtrivedi.com/livecoding_js_demo/">http://www.nileshtrivedi.com/livecoding_js_demo/</a>.<p />
+<p>So our goal is to find `S_0` (initial savings) such that `S_n` becomes 0 when `n = N`. To get this, first we need to write `S_n` in terms of `S_0`, `E_0`, `i`, `f` and `n` and then solve it for `n = N` such that `S_n = 0`.</p>
 
-Of course, there are problems with live evaluation of code. One example is infinite loops which can be avoided by multiple 
-threads. But seeing all the possible corner cases get resolved in real-time as you edit the code is incredibly fun. The bugs 
-become immediately visible - making the programmer confident and happy. The longer it takes to realize that we made a mistake, 
-the more miserable we feel. Nobody minds making a mistake when it can be immediately corrected. This also gives us an incentive 
-to write comprehensive tests which is always a good thing.<p /> 
+<p style="text-align:left">
+Let's use `I=(1+i)` and `F=(1+f)` to simplify our equations:<br/><br/>
+  `E_n = E_0(1+f)^n = E_0F^n`<br/><br/>
+Savings at the start of `n^(th)` year can be written as: savings at the start of the `(n-1)^(th)` year, plus interest earned, minus expenses for the year. However, to avoid a cashflow problem, money has to be kept aside at the start of the year for expenses and therefore interest will be earned only on the remaining amount.<br/><br/>
+  `S_n = S_(n-1)+(S_(n-1)-E_(n-1))i-E_(n-1)`<br/>
+  `    = S_(n-1)I-E_(n-1)I`<br/>
+  `    = S_(n-2)I^2-E_(n-1)I-E_(n-2)I^2`<br/>
+  `    = S_(n-k)I^k-E_0(F^(n-1)I+F^(n-2)I^2+ ... + F^(n-k)I^k)`<br/>
+  `    = S_(n-k)I^k-E_0F^(n-1)I((I/F)^k-1)/(I/F-1)`<br/><br/>
+By using `k=n`, we can get `S_n` in terms of `S_0`:<br/><br/>
+  `S_n = S_0I^n-E_0I((I^n-F^n)/(I-F))`<br/><br/>
 
-I think this direction is worth exploring further. Full-fledged editors for general-purpose programming languages providing live 
-testing capability would be a huge improvement to a programmer&#39;s workflow.<p />
+Let's define `P=S_0/E_0` and `r=F/I`. Now we can find `S_0` in terms of `N` such that `S_N = 0`:<br/><br/>
+  <b>FU Money = `S_0 = E_0(1-r^N)/(1-r)`</b><br/><br/>
+<p>Note that `r = F/I = (1+f)/(1+i)`. For example, 3% inflation and 10% interest means `r = 1.03 / 1.10 = 0.936`. Don't calculate `r` to be `0.03 / 0.10 = 0.3`.</p><br/>
+There it is. The relationship is actually quite straight forward but we get to learn what the important variables are. What really matters is `r` : the ratio of inflation to interest and not their absolute values. Also, your FU money turns out to be a direct multiple of the cost of your desired lifestyle. As an example, taking `f = 7%, i = 10%`, and `N = 40` years, I need savings equal to 25 times of this year's expenses.<br/><br/>
+As a special case, when `r=1`:  `S_0 = NE_0`<br/><br/>
+<p>Here is a simulation in excel which verifies that the formula is correct.</p>
+<iframe width='600' height='300' frameborder='0' src='https://docs.google.com/spreadsheet/pub?key=0AoinifMU5kOMdHpQQnU5a21HSUtQRUZQeWVLZmNkemc&single=true&gid=0&output=html&widget=true'></iframe>
+<p><a href="/files/fu-money.xls">Download the excel sheet</a> to try it out and verify for yourself.</p>
+<br/>
+Typically, `r` is always less than 1 (Think about it: if inflation were higher than interest rate, borrowing money would be impossible). But `r` can be higher than 1 if you are really bad at investing. I plotted `P` as a function of `r` for `N = 30` below. You can clearly see how much of a difference `r` makes to the FU money. For `r = 0.5`, `P = 2` meaning that you just need savings worth two times your current expenses to not have to work for next 30 years. When `r = 0.7`, this factor becomes `3.3`. It grows to `9.5` for `r = 0.9`, `30` for `r = 1` and `164` for `r = 1.1`. <b>Being good at investing is absolutely critical to retiring early.</b>
+
+<p><img src="/images/fumoney-chart.jpg"/></p>
+
+<p>You'll have to be <i>really</i> good at investing to bring `r` below 0.9 (although this is much easier if you live in low-inflation countries).</p>
+We can also find the year when a given amount of savings will last - by solving for `N` in terms of `S_0`:<br/><br/>
+  `N = log(1 - (S_0/E_0)(I-F)/I)/log(F/I)`<br/><br/>
+  `&nbsp; = log(1-P(1-r))/log(r)`<br/><br/>
+</p>
+<p>Needless to say, this analysis is quite simplistic. Big life events like marriage, chlidren etc. will affect the lifestyle immensely and have to be considered. Also, if you want to leave some money when you die (say for family or charity), that has to be accounted for too.</p>
+<p>Discuss this on <a href="https://news.ycombinator.com/item?id=4223900" target="_blank">Hacker News</a> or <a href="http://lifehacker.com/5925077/how-much-is-enough-a-formula-for-fu-money" target="_blank">LifeHacker</a> and <a href="http://www.twitter.com/nileshtrivedi" target="_blank">let me know</a> what you think.</p>
 
 				</div>
 
@@ -85,19 +105,17 @@ testing capability would be a huge improvement to a programmer&#39;s workflow.<p
 				<div class="writingall">
 					<h4> Other articles </h4>
             		<ul>
-            			<li><a href="blog13"> A bottom-up explanation of general relativity</a></li>
-									<li><a href="blog12"> Reciprocity In Open Access</a></li>
-									<li><a href="blog11"> Use An Algorithm As Your Password</a></li>
-									<li><a href="blog10">How much is enough</a></li>
-        					<li><a href="blog9">Search results are the only relevant advertise</a></li>
-        					<li><a href="blog8">Live coding</a></li>
-									<li><a href="blog7">936 months</a></li>
-	       					<li><a href="blog6"> Why I Will Not Buy Asus Transformer Prime</a></li>
-									<li><a href="blog5"> My letter to CERT-IN</a></li>
-        					<li><a href="blog4"> Should We Philosophize ?</a></li>
-									<li><a href="blog3"> A Quick Introduction To Ruby</a></li>
-	       					<li><a href="blog2"> Monsoon Treks In Maharashtra</a></li>
-									<li><a href="blog1">Ubuntu 10.04 (Lucid Lynx) on Dell Vostro 1520</a></li>
+            			<li><a href="blog11.html"> A bottom-up explanation of general relativity</a></li>
+									<li><a href="blog10.html"> Reciprocity In Open Access</a></li>
+									<li><a href="blog9.html"> Use An Algorithm As Your Password</a></li>
+									<li><a href="blog8.html">How much is enough</a></li>
+        					<li><a href="blog7.html">Search results are the only relevant advertise</a></li>
+        					<li><a href="blog6.html">Live coding</a></li>
+									<li><a href="blog5.html">936 months</a></li>
+        					<li><a href="blog4.html"> Should We Philosophize ?</a></li>
+									<li><a href="blog3.html"> A Quick Introduction To Ruby</a></li>
+	       					<li><a href="blog2.html"> Monsoon Treks In Maharashtra</a></li>
+									<li><a href="blog1.html">Ubuntu 10.04 (Lucid Lynx) on Dell Vostro 1520</a></li>
 								</ul>
 	      </div>
 
@@ -108,33 +126,16 @@ testing capability would be a huge improvement to a programmer&#39;s workflow.<p
 			<footer class="wrapper clearfix">
 				<nav class="footer-nav">
      	    <ul>
-	   	      <li><a href="https//www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
-            <li><a href="https//www.github.com/nileshtrivedi" target="_blank">github</a></li>
-						<li><a href="readings.html" target="_blank">readings</a></li>
-         		<li><a href="writingall.html" target="_blank">writing</a></li>
-         		<li><a href="portfolio.html" target="_blank">portfolio</a></li>
-						<li><a href="music.html" target="_blank">music</a></li>
+         		<li><a href="portfolio.html">portfolio</a></li>
+	   	      <li><a href="writingall.html">writing</a></li>
+						<li><a href="music.html">music</a></li>
+						<li><a href="readings.html">readings</a></li>
+						<li><a href="https://www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
+            <li><a href="https://www.github.com/nileshtrivedi" target="_blank">github</a></li>
           </ul>
         </nav>
       </footer>
 		</div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-
-        <script src="js/main.js"></script>
-
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src='//www.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-
-						$( "#dropdown" ).click(function() {
-$( "dd" ).click();
-});
-
-				</script>
-
 
   </body>
 

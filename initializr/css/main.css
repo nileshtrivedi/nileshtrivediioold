@@ -16,7 +16,6 @@ textarea {
 }
 
 body {		
-		/*font-family:'Balthazar', 'Cardo', 'Petrona', serif;*/
 		font-family: 'Alegreya Sans', 'Times New Roman';
     font-size: 1em;
     line-height: 1.4em;
@@ -40,7 +39,7 @@ li {
 	line-height: 1.4;
 }
 
-h1, .page p, .p-heading, .topic p {
+h1, .p-heading {
 	font-family: 'Znikomit';
 	
 }
@@ -107,10 +106,8 @@ header {
     text-align: center;
     text-decoration: none;
 }    
-
-.header-nav a:hover,
-.header-nav a:visited {
-    
+.header-nav li:first-child a {
+		color: #0d9970;
 }
 
 .main-container {
@@ -206,11 +203,7 @@ header {
 		padding: 0 10px;
 }
 
-/* unused css */
 
-/*.header-container {
-		width: 100%;
-}*/
 /* ==========================================================================
    Media Queries
    ========================================================================== */
@@ -224,20 +217,15 @@ header {
 		.header-nav a {
 				display: inline-block;
 		}
-		/*.header-nav ul li .heading {
-				display: block;
-		}*/
+		
 		.intro, .intro-img {
 				width: 100%;
 		}
 }
 
 @media only screen and (min-width: 480px) {
-		.header-nav a {
-       /* float: left;
-        margin: 0 1.7%;
-        padding: 1.2em 2% 2% 2%;
-        margin-bottom: 0;*/
+		/*.header-nav a {
+       
     }
 
     .header-nav li:first-child a {
@@ -246,7 +234,7 @@ header {
 
     .header-nav li:last-child a {
         margin-right: 0;
-    } 
+    } */
 		.intro {
 				width: 100%;
 		}

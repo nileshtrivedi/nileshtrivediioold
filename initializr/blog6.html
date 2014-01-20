@@ -11,28 +11,27 @@
     <meta name="description" content="">
   	<meta name="author" content="cssbubble" >
 
-    <title>Nilesh Trivedi Portfolio </title>
+    <title>Live Coding</title>
     
 		<link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link href='http://fonts.googleapis.com/css?family=Balthazar|Cardo|Petrona|Open+Sans:300italic' rel='stylesheet' type='text/css'>    
+		<link href='http://fonts.googleapis.com/css?family=Exo+2:300|Alegreya+Sans:300|Alef' rel='stylesheet' type='text/css'>  <
   </head>
 
   <body>
 
 		<div class="header-container">
     	<header class="wrapper clearfix">
-				<div class="heading">
-					<h1><a href="onepageonly.html">nilesh trivedi</a></h1>
-				</div>
-
+				
         <nav class="header-nav">
      	    <ul>
-     	      <li><a href="https//www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
-            <li><a href="https//www.github.com/nileshtrivedi" target="_blank">github</a></li>
-						<!--<li><a href="readings.html">readings</a></li>
-            <li><a href="writingall.html">writing</a></li>
-						<li><a href="portfolio.html">portfolio</a></li>-->
+     	       <li><h1><span class="heading">nilesh trivedi</span></h1></li>
+         		<li><a href="portfolio.html">portfolio</a></li>
+	   	      <li><a href="writingall.html">writing</a></li>
+						<li><a href="music.html">music</a></li>
+						<li><a href="readings.html">readings</a></li>
+						<li><a href="https://www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
+            <li><a href="https://www.github.com/nileshtrivedi" target="_blank">github</a></li>
           </ul>
         </nav>
       </header>
@@ -42,32 +41,61 @@
 	   	<div class="main wrapper clearfix">
 
 				<div class="topic">
-					<h2 class="writing">Why I Will Not Buy Asus Transformer Prime </h2>				
+					<h2 class="writing">Live Coding </h2>				
 				</div>					
-							
-							<!--<aside class="writing-aside">
+
+				<div class="writing-article">
+					<h4> 2nd March 2012 </h4>
+					<p>Bret Victor&#39;s presentation <a href="http://vimeo.com/36579366">Inventing On Principle</a> was thought-provoking. 
+As a programmer, we have always known this but his emphasis on the point, that an immediate connection to creative output 
+is enormously valuable, forces us to rethink about our tools and how we can improve them.<p /> 
+
+As I was watching his demo, I realized that the demo relied on certain assumptions. His prototype was for drawing an image 
+on HTML5 canvas. One can easily imagine such a code editor for physical simulations as well. Both of these however are 
+<b>passive</b> and <b>visual</b> in nature. An image is both static and passive, whereas a simulation is dynamic, but 
+still passive. Both are visually perceived, so they can be grasped in an instant.<p /> 
+
+Most programs are not passive. Code is supposed to <b>do</b> things - manipulate the state of the universe. It&#39;s the correct 
+<b>behaviour</b> that we are trying to achieve with our code. I started thinking about how we can immediately visualize the 
+behaviour of code. Behaviour is such a transitive thing - it occupies time. Similar to audio (eg. music), visualizing the entire 
+personality of code appears time-consuming. Code can&#39;t be summarized by data.<p /> 
+
+But can&#39;t it really? Almost immediately I realized that code itself can be used to capture the expected behaviour of 
+another piece of code. By the means of <b>executable tests</b>. So the boolean test results are sufficient to explain whether 
+a piece of code works correctly or not. It is possible to visualize the health of a codebase in an instant.<p /> 
+
+So I sat down and put together a minimal prototype for this. You can try it here: 
+<a href="http://www.nileshtrivedi.com/livecoding_js_demo/">http://www.nileshtrivedi.com/livecoding_js_demo/</a>.<p />
+
+Of course, there are problems with live evaluation of code. One example is infinite loops which can be avoided by multiple 
+threads. But seeing all the possible corner cases get resolved in real-time as you edit the code is incredibly fun. The bugs 
+become immediately visible - making the programmer confident and happy. The longer it takes to realize that we made a mistake, 
+the more miserable we feel. Nobody minds making a mistake when it can be immediately corrected. This also gives us an incentive 
+to write comprehensive tests which is always a good thing.<p /> 
+
+I think this direction is worth exploring further. Full-fledged editors for general-purpose programming languages providing live 
+testing capability would be a huge improvement to a programmer&#39;s workflow.<p />
+
+				</div>
+
+				<hr>
+
+				<div class="writingall">
+					<h4> Other articles </h4>
             		<ul>
-            			<li><a href="http://www.nileshtrivedi.com/2013/09/06/a-bottom-up-explanation-of-general-relativity.html"> A bottom-up explanation of general relativity</a></li>
-									<li><a href="http://www.nileshtrivedi.com/2013/06/20/reciprocity-in-open-access.html"> Reciprocity In Open Access</a></li>
-									<li><a href="http://www.nileshtrivedi.com/2012/12/06/use-an-algorithm-as-your-password.html"> Use An Algorithm As Your Password</a></li>
-									<li><a href="http://www.nileshtrivedi.com/2012/07/10/how-much-is-enough.html">How much is enough</a></li>
-        					<li><a href="http://www.nileshtrivedi.com/search-results-are-the-only-relevant-advertis">Search results are the only relevant advertise</a></li>
-        					<li><a href="http://www.nileshtrivedi.com/live-coding">Live coding</a></li>
-									<li><a href="http://www.nileshtrivedi.com/936-months">936 months</a></li>
-	       					<li><a href="http://www.nileshtrivedi.com/why-i-will-not-buy-asus-transformer-prime"> Why I Will Not Buy Asus Transformer Prime</a></li>
-									<li><a href="http://www.nileshtrivedi.com/my-letter-to-cert-in"> My letter to CERT-IN</a></li>
-        					<li><a href="http://www.nileshtrivedi.com/why-philosophize"> Should We Philosophize ?</a></li>
-									<li><a href="http://www.nileshtrivedi.com/a-quick-introduction-to-ruby"> A Quick Introduction To Ruby</a></li>
-	       					<li><a href="http://www.nileshtrivedi.com/monsoon-treks-in-maharashtra"> Monsoon Treks In Maharashtra</a></li>
-									<li><a href="http://www.nileshtrivedi.com/ubuntu-1004-lucid-lynx-on-dell-vostro-1520">Ubuntu 10.04 (Lucid Lynx) on Dell Vostro 1520
-
-</a></li>
+            			<li><a href="blog11.html"> A bottom-up explanation of general relativity</a></li>
+									<li><a href="blog10.html"> Reciprocity In Open Access</a></li>
+									<li><a href="blog9.html"> Use An Algorithm As Your Password</a></li>
+									<li><a href="blog8.html">How much is enough</a></li>
+        					<li><a href="blog7.html">Search results are the only relevant advertise</a></li>
+        					<li><a href="blog6.html">Live coding</a></li>
+									<li><a href="blog5.html">936 months</a></li>
+        					<li><a href="blog4.html"> Should We Philosophize ?</a></li>
+									<li><a href="blog3.html"> A Quick Introduction To Ruby</a></li>
+	       					<li><a href="blog2.html"> Monsoon Treks In Maharashtra</a></li>
+									<li><a href="blog1.html">Ubuntu 10.04 (Lucid Lynx) on Dell Vostro 1520</a></li>
 								</ul>
-	            </aside>-->
-
-				<article class="writing-article">
-					<p><span style="font-size: medium;">When I first heard about&nbsp;<a href="http://eee.asus.com/eeepad/transformer-prime/features/">Asus Transformer Prime</a>, I was very excited. This was the first combination of power and portability with a touchscreen that made the cut for me. Other tablets are more of consumption devices, where as I want a device with which I can get some real work done too. That meant 10" screen at the minimum and a keyboard dock, good battery life and decent processing power. In other words, I want a netbook / tablet hybrid. The specs for Asus Transformer Prime seemed perfect.</span><p /> <span style="font-size: medium;">Then came the bad news.&nbsp;<a href="http://www.anandtech.com/show/5163/asus-eee-pad-transformer-prime-nvidia-tegra-3-review">Problems were reported with the WiFi and GPS capabilities&nbsp;of the device</a> because of the all aluminium casing. The tablet launch was delayed because of these. WiFi issues may have been resolved now but the GPS issues are real and Asus has acknowledged that there is nothing they can do about it. They have now removed GPS capability from the specs page.</span><p /> <span style="font-size: medium;">The deal breaker, however, was when people&nbsp;<a href="http://www.xda-developers.com/android/asus-transformer-prime-bootloader-is-locked-encrypted-show-your-outrage/">discovered</a>&nbsp;that&nbsp;<strong>Transformer Prime would come equipped with a locked, encrypted boot loader</strong>. That means users won&rsquo;t be able to install alternative operating systems on this machine which it is otherwise perfectly capable of. It will come pre-installed with Android which you can fix or upgrade ONLY IF Asus provides the updates. This is utterly unacceptable to me.&nbsp;<strong>Buying a computer which cannot run code of your choice is like buying a hard disk which cannot store data of your choice.</strong>&nbsp;While OEMs have started following Apple's lead in convincing the buyers that software is tightly coupled with hardware and you really buy an iOS or Android device, and not a general purpose computer, I expected the taiwanese / chinese manufacturers to skip this bullshit and offer decent hardware, without limiting it artificially with locked boot loaders.</span><p /> <span style="font-size: medium;">Predictably, there was immense outcry against this. Users were angry because they had pre-ordered this machine without knowing that it would come with a locked boot loader and Asus had pulled an unexpected betrayal. Asus then&nbsp;<a href="http://www.bgr.com/2012/01/03/asus-confirms-intent-to-release-transformer-prime-bootloader-unlocking-tool/">responded to criticism</a>&nbsp;by giving a bullshit defense and at the same time giving in, saying that they will develop a boot loader unlocking tool. However, and this is important,&nbsp;<strong>the warranty will be void if the boot loader is unlocked</strong>.</span><p /> <span style="font-size: medium;">Better, but still unacceptable to me. Let's assume that they actually do provide this boot loader unlock tool for free and without restrictions - even though making this assumption would not be prudent considering how they behaved. Even with this, Asus Transformer Prime is a product that effectively comes with no warranty. Let me repeat that:&nbsp;<strong>Asus Transformer Prime effectively has no warranty.</strong> Installation of operating systems on a computer is as natural and intended use case as is filling your car's fuel tank. If Honda offers a car with the restriction that warranty becomes void if you refuel it at a gas station which is not owned by Honda, how good would you think the deal is? To make this deal acceptable, Asus would have to heavily discount the Transformer Prime. Since they are not doing that, <strong>Transformer Prime remains a crippled and expensive product</strong> - just like all the other tablets in the market right now.</span><p /> <span style="font-size: medium;">My conclusions from this episode:</span></p><ul><li><span style="font-size: medium;">Transformer Prime is not worth its price.</span></li><li><span style="font-size: medium;">Avoid pre-ordering anything. Buy only after it is launched and real data is available on what is included and what is not.</span></li><li><span style="font-size: medium;">The search for a good computer OEM continues.</span></li></ul>
-				</article>
+	      </div>
 
       </div> <!-- #main -->
     </div> <!-- #main-container -->
@@ -76,17 +104,16 @@
 			<footer class="wrapper clearfix">
 				<nav class="footer-nav">
      	    <ul>
-	   	      <li><a href="https//www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
-            <li><a href="https//www.github.com/nileshtrivedi" target="_blank">github</a></li>
-						<!--<li><a href="readings.html">readings</a></li>
-         		<li><a href="writingall.html">writing</a></li>
-         		<li><a href="portfolio.html">portfolio</a></li>-->
+         		<li><a href="portfolio.html">portfolio</a></li>
+	   	      <li><a href="writingall.html">writing</a></li>
+						<li><a href="music.html">music</a></li>
+						<li><a href="readings.html">readings</a></li>
+						<li><a href="https://www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
+            <li><a href="https://www.github.com/nileshtrivedi" target="_blank">github</a></li>
           </ul>
         </nav>
       </footer>
 		</div>
-<script src="js/jquery.js"></script>
-
 
   </body>
 

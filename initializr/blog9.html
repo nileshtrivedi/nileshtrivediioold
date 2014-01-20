@@ -11,29 +11,27 @@
     <meta name="description" content="">
   	<meta name="author" content="cssbubble" >
 
-    <title>Search results are the only relevant advertise </title>
+    <title> Use An Algorithm As Your Password</title>
     
 		<link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link href='http://fonts.googleapis.com/css?family=Balthazar|Cardo|Petrona|Open+Sans:300italic' rel='stylesheet' type='text/css'>    
+		<link href='http://fonts.googleapis.com/css?family=Exo+2:300|Alegreya+Sans:300|Alef' rel='stylesheet' type='text/css'>  <   
   </head>
 
   <body>
 
 		<div class="header-container">
     	<header class="wrapper clearfix">
-				<div class="heading">
-					<h1><a href="index.html">nilesh trivedi</a></h1>
-				</div>
-
+				
         <nav class="header-nav">
      	    <ul>
-     	      <li><a href="https//www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
-            <li><a href="https//www.github.com/nileshtrivedi" target="_blank">github</a></li>
-						<li><a href="readings.html" target="_blank">readings</a></li>
-            <li><a href="writingall.html" target="_blank">writing</a></li>
-						<li><a href="portfolio.html" target="_blank">portfolio</a></li>
-						<li><a href="music.html" target="_blank">music</a></li>
+     	       <li><h1><span class="heading">nilesh trivedi</span></h1></li>
+         		<li><a href="portfolio.html">portfolio</a></li>
+	   	      <li><a href="writingall.html">writing</a></li>
+						<li><a href="music.html">music</a></li>
+						<li><a href="readings.html">readings</a></li>
+						<li><a href="https://www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
+            <li><a href="https://www.github.com/nileshtrivedi" target="_blank">github</a></li>
           </ul>
         </nav>
       </header>
@@ -43,12 +41,58 @@
 	   	<div class="main wrapper clearfix">
 
 				<div class="topic">
-					<h2 class="writing">Search results are the only relevant advertise </h2>				
+					<h2 class="writing"> Use An Algorithm As Your Password </h2>				
 				</div>					
-							
+
 				<div class="writing-article">
-					<h4> date </h4>
-					<p>Marketers these days love to throw this phrase around: if advertising is targeted enough, it becomes "useful information" instead of advertising. That's selfish bullshit trying to give an ethical justification to the fact that they are basically being jerks.<p /> Guess what? There exists something called "search". The only relevant kind of advertising are search results. Interruptive ads, no matter how well targeted, are not relevant enough. Put in other words, your so-called targeting can NOT be sufficient if it does not include the intent of the user at THAT moment.<p /> Be accessible when I search. But don't come shout in my face screaming about your product when I am trying to do something else. If I need to know about you, I'll look you up. Just think of it as basic courtesy and etiquette in a public place. If search is available and works well, we users don't really need interruptive ads.<p /> A very nice consequence of this would be that marketers won't need to collect data about me and build huge behavioral profiles. I'll come to you when I need you. And when I knock on your door, you would be certain that I am interested in talking to you.<p /> I don't really mean that interruptive ads are immoral. I just mean that they are rude. The above argument is not really to persuade the marketers, but to convince the users that the justification for "interruptive ads are okay because they are targeted" is not strong enough and all else being equal, "no ads" is better than "targeted ads".</p>
+					<h4> 6th Dec 2012 </h4>
+					<p>If you want strong, unique, easy to recall, but hard to guess passwords for every app and service without writing them down or storing them anywhere, try devising an algorithm. Here is one example: </p>
+
+					<p>
+  					<code>[First four characters of the app/website name in lowercase] + [optional special characters] + [A long, hard to guess but easy to recall passphrase] + [First 3 characters of your capitalized username] + [optional suffix for type of password]</code>
+					</p>
+
+					<p>
+						<ul>
+							<li>Using the app/website name makes it unique per app and thus solves the security risk of password reuse. If one of them gets hacked, your other accounts are still safe.</li>
+							<li>Optional special characters allows you to deal with stupid sites with artificial restrictions on which special characters are allowed.</li>
+							<li>Using characters from username allows you to have different passwords for multiple accounts on the same site.</li>
+							<li>Optional suffixes can be useful where the website forces you to choose two different passwords (say, read-only/read-write or login/transactional) or forces you to change the password every 15 days or other such things.</li>
+							<li>For the complex passphrase, you can use <a href="http://xkcd.com/936">XKCD's</a> approach to come up with phrases like <b>"CowPurposefullySpinsWheels"</b>.</li>
+						</ul>
+					</p>
+
+
+					<table border="1" style="font-size: 75%; text-align: center;">
+  					<thead>
+							<tr>
+								<th>App / Website</th>
+								<th>Special characters</th>
+								<th>Username</th>
+								<th>Password Type</th>
+								<th>Password</th>
+							</tr>
+						</thead>
+  					<tbody>
+    					<tr>
+								<td>Twitter</td>
+								<td>Allowed</td>
+								<td>batman</td>
+								<td></td>
+								<td><b>twit#!</b>CowPurposefullySpinsWheels<b>BAT</b></td>
+							</tr>
+    <tr><td>Twitter</td><td>Allowed</td><td>superman</td><td></td><td><b>twit#!</b>CowPurposefullySpinsWheels<b>SUP</b></td></tr>
+    <tr><td>Citibank</td><td>Only digits</td><td>secret_santa</td><td>Login</td><td><b>citi34</b>CowPurposefullySpinsWheels<b>SEC</b></td></tr>
+    <tr><td>Citibank</td><td>Only digits</td><td>secret_santa</td><td>Transactional</td><td><b>citi34</b>CowPurposefullySpinsWheels<b>SEC</b>txnl</td></tr>
+    <tr><td>Facebook</td><td>Not Allowed</td><td>spiderman</td><td></td><td><b>face</b>CowPurposefullySpinsWheels<b>SPI</b></td></tr>
+  </tbody>
+</table>
+
+<p>This is only an example. Be creative and come up with your own scheme!</p>
+
+<p>There you have it! Now you only need to remember a passphrase and an algorithm. Of course, this may be useless for sites which have artificial limits on minimum/maximum length of passwords. This is mostly a case of lazy engineering so make sure to complain and let them know about it.</p>
+
+
 				</div>
 
 				<hr>
@@ -56,19 +100,17 @@
 				<div class="writingall">
 					<h4> Other articles </h4>
             		<ul>
-            			<li><a href="blog13"> A bottom-up explanation of general relativity</a></li>
-									<li><a href="blog12"> Reciprocity In Open Access</a></li>
-									<li><a href="blog11"> Use An Algorithm As Your Password</a></li>
-									<li><a href="blog10">How much is enough</a></li>
-        					<li><a href="blog9">Search results are the only relevant advertise</a></li>
-        					<li><a href="blog8">Live coding</a></li>
-									<li><a href="blog7">936 months</a></li>
-	       					<li><a href="blog6"> Why I Will Not Buy Asus Transformer Prime</a></li>
-									<li><a href="blog5"> My letter to CERT-IN</a></li>
-        					<li><a href="blog4"> Should We Philosophize ?</a></li>
-									<li><a href="blog3"> A Quick Introduction To Ruby</a></li>
-	       					<li><a href="blog2"> Monsoon Treks In Maharashtra</a></li>
-									<li><a href="blog1">Ubuntu 10.04 (Lucid Lynx) on Dell Vostro 1520</a></li>
+            			<li><a href="blog11.html"> A bottom-up explanation of general relativity</a></li>
+									<li><a href="blog10.html"> Reciprocity In Open Access</a></li>
+									<li><a href="blog9.html"> Use An Algorithm As Your Password</a></li>
+									<li><a href="blog8.html">How much is enough</a></li>
+        					<li><a href="blog7.html">Search results are the only relevant advertise</a></li>
+        					<li><a href="blog6.html">Live coding</a></li>
+									<li><a href="blog5.html">936 months</a></li>
+        					<li><a href="blog4.html"> Should We Philosophize ?</a></li>
+									<li><a href="blog3.html"> A Quick Introduction To Ruby</a></li>
+	       					<li><a href="blog2.html"> Monsoon Treks In Maharashtra</a></li>
+									<li><a href="blog1.html">Ubuntu 10.04 (Lucid Lynx) on Dell Vostro 1520</a></li>
 								</ul>
 	      </div>
 
@@ -79,17 +121,19 @@
 			<footer class="wrapper clearfix">
 				<nav class="footer-nav">
      	    <ul>
-	   	      <li><a href="https//www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
-            <li><a href="https//www.github.com/nileshtrivedi" target="_blank">github</a></li>
-						<li><a href="readings.html" target="_blank">readings</a></li>
-         		<li><a href="writingall.html" target="_blank">writing</a></li>
-         		<li><a href="portfolio.html" target="_blank">portfolio</a></li>
-						<li><a href="music.html" target="_blank">music</a></li>
+	   	       <li><h1><span class="heading">nilesh trivedi</span></h1></li>
+         		<li><a href="portfolio.html">portfolio</a></li>
+	   	      <li><a href="writingall.html">writing</a></li>
+						<li><a href="music.html">music</a></li>
+						<li><a href="readings.html">readings</a></li>
+						<li><a href="https://www.twitter.com/nileshtrivedi" target="_blank">twitter</a></li>
+            <li><a href="https://www.github.com/nileshtrivedi" target="_blank">github</a></li>
           </ul>
         </nav>
       </footer>
 		</div>
-<script src="js/jquery.js"></script>
+		
+		<script src="js/jquery.js"></script>
 
 
   </body>
