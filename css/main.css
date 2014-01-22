@@ -136,6 +136,11 @@ header {
 		height: 219.1px;
 }
 
+p.writing {
+  max-width: 600px;
+  text-align: left;
+  margin: 15px auto;
+}
 .writingall {
 		text-align: left;
 		margin-left: 30%;
@@ -159,7 +164,7 @@ header {
 
 .p-img {
 		margin:10px;
-		width: 80%;
+		/* width: 80%; */
 		height: 130px;
 }
 .p-heading {
@@ -173,7 +178,7 @@ header {
 }
 .portfolio {
 		width: 300px;
-		height: 450px;
+		height: 460px;
 		border: 1px dotted gray;
 		display: inline-block;
 		margin: 10px;
