@@ -5,6 +5,13 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
   <head lang="en">
+<script type="text/javascript">
+    var host = "www.nileshtrivedi.com";
+    if ((host == window.location.host) && (window.location.protocol != "https:")){
+        window.location.protocol = "https";
+    }
+</script>
+
     <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +19,7 @@
   	<meta name="author" content="cssbubble" >
 
     <title>{{ page.title }} :: Nilesh Trivedi</title>
-    
+    <link rel="canonical" href=" { { site.url } }{ { page.url } }" />    
 		<link rel="stylesheet" href="/css/normalize.min.css">
     <link rel="stylesheet" href="/css/main.css">
 
