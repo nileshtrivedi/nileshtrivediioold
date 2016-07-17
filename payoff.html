@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">    
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js "></script>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <style type="text/css">
+    .selected {
+      background-color: yellow;
+      color: black;
+      padding: 2px;
+    }
+  </style>
+
+  <title>Payoff Chart</title>
+
+  <script type='text/javascript'>//<![CDATA[
+  var vm;
+  var prices = {"NIFTY": 102};
+  function sum(arr){
+    return arr.reduce(function(a, b) {
+      return a + b;
+    }, 0);
+  }
+
+  function legPayoff(leg, underlying_price){
+    if(leg.kind == "Stock"){
+      return leg.qty*(underlying_price - leg.strike);
+    } else if (leg.kind == "Future"){
+      return leg.qty*(underlying_price - leg.strike);
+    } else if (leg.kind == "Call"){
+      return leg.qty*(Math.max(underlying_price - leg.strike,0) - leg.premium);
+    } else if (leg.kind == "Put"){
+      return leg.qty*(Math.max(leg.strike - underlying_price,0) - leg.premium);
+    }
+  }
+
+  function strategyPayoff(strategy, ul_price){
+    return sum(strategy.legs.map(function(s){
+      return legPayoff(s,ul_price);
+    }));
+  }
+
+  function getInterestingPoints(strategy){
+    return [0].concat(strategy.legs.map(function(s){
+      return s.strike;
+    }).concat([200])).unique().sort();
+  }
+
+function randomColor() {
+    return 'hsla(' + (Math.random() * 360) + ', 100%, 50%, 0.7)';
+}
+
+  function getChartData(strategy, points){
+    var datasets = strategy.legs.map(function(leg){
+      return {
+        label: [leg.direction, leg.kind, leg.strike].join(' '),
+        lineTension: 0,
+        borderColor: randomColor(),
+        fill: false,
+        data: points.map(function(p){
+                    return {x: p, y: legPayoff(leg,p)};
+                  })
+      };
+    });
+    //datasets=[];
+    datasets.push({
+                  label: 'Strategy Payoff',
+                  lineTension: 0,
+                  backgroundColor: randomColor(),
+                  data: points.map(function(p){
+                    return {x: p, y: strategyPayoff(strategy,p)};
+                  })
+              });
+    return {datasets: datasets};
+  }
+
+  window.onload=function(){
+
+var LegViewModel = Vue.extend({
+  // extension options
+});
+
+var StrategyViewModel = Vue.extend({
+  // extension options
+});
+
+var StrategyListViewModel = Vue.extend({
+  // extension options
+});
+
+var UnderlyingViewModel = Vue.extend({
+  // extension options
+});
+
+var UnderlyingListViewModel = Vue.extend({
+  // extension options
+});
+
+var UnderlyingTypeListViewModel = Vue.extend({
+  // extension options
+});
+
+var ultypes = [
+  {
+    name: "Indices",
+    underlyings: [
+      {currentPrice: 5, volatility: 6, rate: 7, name: "NIFTY"},
+      {currentPrice: 6, volatility: 6, rate: 7, name: "BANKNIFTY"}
+    ]
+  },
+  {
+    name: "Stocks",
+    underlyings: [
+      {currentPrice: 7, volatility: 6, rate: 7, name: "INFY"}
+    ]
+  },
+  {
+    name: "Currency",
+    underlyings: [
+      {currentPrice: 8, volatility: 6, rate: 7, name: "USDINR"}
+    ]
+  },
+];
+
+  var strategy = {
+    name: "TestStratName",
+    stock: {currentPrice: 5, volatility: 6, rate: 7, name: "NIFTY"},
+    legs: [
+      //{underlying: "NIFTY", type: "stock", qty: 1, exercise_price: 100},
+      //{underlying: "NIFTY", type: "future", qty: 1, exercise_price: 120},
+      {underlying: "NIFTY", kind: "Put", direction: "Buy", qty: 1, strike: 140, premium: 10, expiry: "foo"},
+      {underlying: "NIFTY", kind: "Call", direction: "Buy", qty: 1, strike: 140, premium: 10, expiry: "bar"}
+    ],
+    generatePayoff: function(){
+      console.log("generatePayoff called");
+      var ctx = document.getElementById("myChart");
+      if(!ctx) return;
+      var dd = getChartData(this,getInterestingPoints(this));
+      console.log(dd);
+      var myChart = new Chart(ctx, {
+          type: 'line',
+          data: dd,
+          options: {
+              maintainAspectRatio: false,
+              responsive: true,
+              scales: {
+                  xAxes: [{
+                      type: 'linear',
+                      position: 'bottom'
+                  }]
+              }
+          }
+      });
+    },
+    addLeg: function(){
+      console.log("addLeg called");
+      this.legs.push({
+        kind: "Call", strike: 130, premium: 15, expiry: "baz", direction: "Buy", qty: 1
+      });
+    },
+    removeLeg: function(index){
+      console.log("removeLeg called");
+      this.legs.splice(index, 1);
+    }
+  };
+
+    vm = new Vue({
+      el: ".payoffapp",
+      data: {
+        strategies: [strategy],
+        selectedStrategy: null,
+        ultypes: ultypes,
+        selectedUnderlying: null
+      },
+      methods: {
+        select: function (strat) {
+          this.selectedStrategy = strat;
+          this.selectedStrategy.generatePayoff();
+        },
+        selectUnderlying: function(ul){
+          this.selectedUnderlying = ul;
+        }
+      }
+    });
+
+  }//]]> 
+
+  </script>  
+</head>
+
+<body>
+  
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="#"><span class="navbar-brand">Payoff charts</span></a>
+        </div>
+            
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="payoffapp">
+        <!-- <p>Payoff charts show you the profit of strategy in the dependency on the underlying movements. In the table bellow you can add legs to form strategies.</p> -->
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Underlyings</div>
+                <div class="panel-body">
+                    <ul>
+                        <li v-for="ultype in ultypes">
+                            {{ ultype.name }}
+                            <ul>
+                              <li v-for="ul in ultype.underlyings">
+                                <a href="#" v-on:click="selectUnderlying(ul)" v-bind:class="{ 'selected': (ul == this.selectedUnderlying) }">{{ ul.name }}</a>
+                              </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">&nbsp;{{ selectedUnderlying.name }}</div>
+                <div class="panel-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Current price</label>
+                            <div class="col-sm-7">
+                                <input type="number" class="form-control" placeholder="CurrentPrice" v-model="selectedUnderlying.currentPrice" number>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Volatility</label>
+                            <div class="col-sm-7">
+                                <input type="number" class="form-control" placeholder="Volatility" v-model="selectedUnderlying.volatility" number>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Interest Rate</label>
+                            <div class="col-sm-7">
+                                <input type="number" class="form-control" placeholder="Interest Rate" v-model="selectedUnderlying.rate" number>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">Strategies:</div>
+                <div class="panel-body">
+                    <ul>
+                        <li v-for="strategy in strategies">
+                            <a href="#" v-on:click="select(strategy)">{{ strategy.name }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="panel panel-primary" v-if="selectedStrategy">
+                <div class="panel-heading">{{selectedStrategy.name}}</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Direction</th>
+                            <th>Quantity</th>
+                            <th>Kind</th>
+                            <th>Strike</th>
+                            <th>Expiry</th>
+                            <th>Price</th>
+                            <th>LTP</th>
+                            <th><button type="submit" class="btn btn-success btn-xs" @click="selectedStrategy.addLeg()">Add Leg</button></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="leg in selectedStrategy.legs">
+                            <td>
+                                <select class="form-control" v-model="leg.direction" id="direction">
+                                    <option>Buy</option>
+                                    <option>Sell</option>
+                                </select>
+                            </td>
+                            <td><input type="number" min="0" class="form-control form-control-inline" placeholder="0" v-model="leg.qty" id="qty" number></td>
+                            <td>
+                                <select class="form-control" v-model="leg.kind">
+                                    <option>Call</option>
+                                    <option>Put</option>
+                                    <option>Future</option>
+                                    <option>Stock</option>
+                                </select>
+                            </td>
+                            <td><input type="number" class="form-control form-control-inline" placeholder="Strike" v-model="leg.strike" id="strike" number></td>
+                            <td><input type="datetime" class="form-control form-control-inline" placeholder="Expiry" v-model="leg.expiry" id="expiry"></td>
+                            <td><input type="number" class="form-control form-control-inline" placeholder="Price" v-model="leg.strike" id="strike" number></td>
+                            <td><span data-bind="formattedValue:delta, rounding:2">43</span></td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-xs" aria-label="Left Align" @click="selectedStrategy.removeLeg(leg)">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-success btn-xs" @click="selectedStrategy.generatePayoff()">Generate Payoff</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary" v-if="selectedStrategy">
+                <div class="panel-heading">Payoff Chart</div>
+                <div class="panel-body" style="height: 300px;"">
+                    <!-- <svg id="payoffchart"></svg> -->
+                    <canvas id="myChart" height="250" style="width: 100%; height: 250px;"></canvas>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+  
+</body>
+
+</html>
+
