@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">    
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js "></script>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -15,44 +16,39 @@
     }
   </style>
 
-  <title>Payoff Chart</title>
+  <title>Ticker</title>
 
   <script type='text/javascript'>//<![CDATA[
-  var vm;
-  var prices = {"NIFTY": 102};
-  function sum(arr){
-    return arr.reduce(function(a, b) {
-      return a + b;
-    }, 0);
-  }
+  var vm; //global top-level viewmodel
 
   function legPayoff(leg, underlying_price){
+    var factor = (leg.direction == "Buy" ? 1.0 : -1.0);
     if(leg.kind == "Stock"){
-      return leg.qty*(underlying_price - leg.strike);
+      return factor*leg.qty*(underlying_price - leg.strike);
     } else if (leg.kind == "Future"){
-      return leg.qty*(underlying_price - leg.strike);
+      return factor*leg.qty*(underlying_price - leg.strike);
     } else if (leg.kind == "Call"){
-      return leg.qty*(Math.max(underlying_price - leg.strike,0) - leg.premium);
+      return factor*leg.qty*(Math.max(underlying_price - leg.strike,0) - leg.premium);
     } else if (leg.kind == "Put"){
-      return leg.qty*(Math.max(leg.strike - underlying_price,0) - leg.premium);
+      return factor*leg.qty*(Math.max(leg.strike - underlying_price,0) - leg.premium);
     }
   }
 
   function strategyPayoff(strategy, ul_price){
-    return sum(strategy.legs.map(function(s){
+    return strategy.legs.map(function(s){
       return legPayoff(s,ul_price);
-    }));
+    }).sum();
   }
 
   function getInterestingPoints(strategy){
     return [0].concat(strategy.legs.map(function(s){
       return s.strike;
-    }).concat([200])).unique().sort();
+    })).concat([2*strategy.underlying.currentPrice]).unique().sort(function(a,b){ return (a-b);});
   }
 
-function randomColor() {
-    return 'hsla(' + (Math.random() * 360) + ', 100%, 50%, 0.7)';
-}
+  function randomColor() {
+      return 'hsla(' + (Math.random() * 360) + ', 100%, 50%, 0.7)';
+  }
 
   function getChartData(strategy, points){
     var datasets = strategy.legs.map(function(leg){
@@ -108,39 +104,35 @@ var ultypes = [
   {
     name: "Indices",
     underlyings: [
-      {currentPrice: 5, volatility: 6, rate: 7, name: "NIFTY"},
+      {currentPrice: 8541.40, volatility: 6, rate: 7, name: "NIFTY", strikes: [9000,8500,8000]},
       {currentPrice: 6, volatility: 6, rate: 7, name: "BANKNIFTY"}
     ]
   },
   {
-    name: "Stocks",
+    name: "Stocks (coming soon)",
     underlyings: [
-      {currentPrice: 7, volatility: 6, rate: 7, name: "INFY"}
     ]
   },
   {
-    name: "Currency",
+    name: "Currency (coming soon)",
     underlyings: [
-      {currentPrice: 8, volatility: 6, rate: 7, name: "USDINR"}
     ]
   },
 ];
 
-  var strategy = {
-    name: "TestStratName",
-    stock: {currentPrice: 5, volatility: 6, rate: 7, name: "NIFTY"},
-    legs: [
-      //{underlying: "NIFTY", type: "stock", qty: 1, exercise_price: 100},
-      //{underlying: "NIFTY", type: "future", qty: 1, exercise_price: 120},
-      {underlying: "NIFTY", kind: "Put", direction: "Buy", qty: 1, strike: 140, premium: 10, expiry: "foo"},
-      {underlying: "NIFTY", kind: "Call", direction: "Buy", qty: 1, strike: 140, premium: 10, expiry: "bar"}
-    ],
+function generateStrategy(std,ul){
+  return {
+    name: std.name,
+    underlying: ul,
+    legs: std.legs.map(function(l){
+      return {
+        underlying: ul, kind: l.kind, direction: l.direction, qty: 1, strike: ul.strikes.first(), premium: 900, expiry: "bar"};
+    }),
     generatePayoff: function(){
-      console.log("generatePayoff called");
+      //console.log("generatePayoff called");
       var ctx = document.getElementById("myChart");
       if(!ctx) return;
       var dd = getChartData(this,getInterestingPoints(this));
-      console.log(dd);
       var myChart = new Chart(ctx, {
           type: 'line',
           data: dd,
@@ -157,35 +149,79 @@ var ultypes = [
       });
     },
     addLeg: function(){
-      console.log("addLeg called");
+      //console.log("addLeg called");
       this.legs.push({
         kind: "Call", strike: 130, premium: 15, expiry: "baz", direction: "Buy", qty: 1
       });
     },
     removeLeg: function(index){
-      console.log("removeLeg called");
+      //console.log("removeLeg called");
       this.legs.splice(index, 1);
     }
   };
+}
 
-    vm = new Vue({
-      el: ".payoffapp",
+  var longcall = {
+    name: "Long Call",
+    legs: [
+      {kind: "Call", direction: "Buy"}
+    ]
+  };
+
+  var longput = {
+    name: "Long Put",
+    legs: [
+      {kind: "Put", direction: "Buy"}
+    ]
+  };
+
+  var shortcall = {
+    name: "Short Call",
+    legs: [
+      {kind: "Call", direction: "Sell"}
+    ]
+  };
+
+  var shortput = {
+    name: "Short Put",
+    legs: [
+      {kind: "Put", direction: "Sell"}
+    ]
+  };
+
+  var straddle = {
+    name: "Straddle",
+    legs: [
+      {kind: "Put", direction: "Buy"},
+      {kind: "Call", direction: "Buy"}
+    ]
+  };
+
+  vm = new Vue({
+      el: "#tickerapp",
       data: {
-        strategies: [strategy],
+        stdStrategies: [longcall, longput, shortcall, shortput, straddle],
         selectedStrategy: null,
         ultypes: ultypes,
-        selectedUnderlying: null
+        selectedUnderlying: ultypes.first().underlyings.first(),
+        kiteLastPing: 5,
+        nseLastPing: 6
       },
       methods: {
-        select: function (strat) {
-          this.selectedStrategy = strat;
-          this.selectedStrategy.generatePayoff();
+        select: function (stdStrat) {
+          this.selectedStrategy = generateStrategy(stdStrat, this.selectedUnderlying);
+          //this.selectedStrategy.generatePayoff();
         },
         selectUnderlying: function(ul){
           this.selectedUnderlying = ul;
+        },
+        getHumanTime: function(str){
+          var t = parseInt(str);
+          if(t < 10) return "Never";
+          return moment(t).fromNow();
         }
       }
-    });
+  });
 
   }//]]> 
 
@@ -197,13 +233,13 @@ var ultypes = [
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#"><span class="navbar-brand">Payoff charts</span></a>
+            <a href="#"><span class="navbar-brand">Ticker</span></a>
         </div>
             
     </div>
 </nav>
 <div class="container-fluid">
-    <div class="payoffapp">
+    <div class="payoffapp" id="tickerapp">
         <!-- <p>Payoff charts show you the profit of strategy in the dependency on the underlying movements. In the table bellow you can add legs to form strategies.</p> -->
         <div class="col-md-3">
             <div class="panel panel-primary">
@@ -218,6 +254,8 @@ var ultypes = [
                               </li>
                             </ul>
                         </li>
+                        <li>Kite Ping: {{ getHumanTime(kiteLastPing) }} <input id="kiteLastPing" type="hidden" class="form-control" v-model="kiteLastPing" number></li>
+                        <li>NSE Ping: {{ getHumanTime(nseLastPing) }} <input id="nseLastPing" type="hidden" class="form-control" v-model="nseLastPing" number></li>
                     </ul>
                 </div>
             </div>
@@ -227,7 +265,7 @@ var ultypes = [
                 <div class="panel-body">
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Current price</label>
+                            <label class="col-sm-5 control-label">Current Value</label>
                             <div class="col-sm-7">
                                 <input type="number" class="form-control" placeholder="CurrentPrice" v-model="selectedUnderlying.currentPrice" number>
                             </div>
@@ -252,8 +290,8 @@ var ultypes = [
                 <div class="panel-heading">Strategies:</div>
                 <div class="panel-body">
                     <ul>
-                        <li v-for="strategy in strategies">
-                            <a href="#" v-on:click="select(strategy)">{{ strategy.name }}</a>
+                        <li v-for="stdStrategy in stdStrategies">
+                            <a href="#" v-on:click="select(stdStrategy)">{{ stdStrategy.name }}</a>
                         </li>
                     </ul>
                 </div>
