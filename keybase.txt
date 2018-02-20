@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/nileshtrivedi
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://nileshtrivedi.com
+  * I am nileshtrivedi (https://keybase.io/nileshtrivedi) on keybase.
+  * I have a public key ASDS2qJDEl9_uy-LwMNZItAdCCU9ct2v6V57tlhS80cErgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d2daa243125f7fbb2f8bc0c35922d01d08253d72ddafe95e7bb65852f34704ae0a",
+      "host": "keybase.io",
+      "kid": "0120d2daa243125f7fbb2f8bc0c35922d01d08253d72ddafe95e7bb65852f34704ae0a",
+      "uid": "46d532dca95c553ddad7c9abfeb1fa19",
+      "username": "nileshtrivedi"
+    },
+    "merkle_root": {
+      "ctime": 1519139662,
+      "hash": "e7035977bc4a25e40d1d86cd71383262304d85c5c7ef1ea79cbd1b854a811994147ccc5212ec5cee8f0a37212ede950090b52dd6fa3dfd313ad5b57547799ad8",
+      "hash_meta": "5fe765b84aaba9db768070fd68e625b32e04aac303217a4526a2d09010a93843",
+      "seqno": 2127798
+    },
+    "service": {
+      "hostname": "nileshtrivedi.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.40"
+  },
+  "ctime": 1519139676,
+  "expire_in": 504576000,
+  "prev": "66dbfc725e24911e5e745bb5ce4bf4f73b2e303cfcad6317af1732e6e8473892",
+  "seqno": 10,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg0tqiQxJff7svi8DDWSLQHQglPXLdr+lee7ZYUvNHBK4Kp3BheWxvYWTFA097ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwZDJkYWEyNDMxMjVmN2ZiYjJmOGJjMGMzNTkyMmQwMWQwODI1M2Q3MmRkYWZlOTVlN2JiNjU4NTJmMzQ3MDRhZTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZDJkYWEyNDMxMjVmN2ZiYjJmOGJjMGMzNTkyMmQwMWQwODI1M2Q3MmRkYWZlOTVlN2JiNjU4NTJmMzQ3MDRhZTBhIiwidWlkIjoiNDZkNTMyZGNhOTVjNTUzZGRhZDdjOWFiZmViMWZhMTkiLCJ1c2VybmFtZSI6Im5pbGVzaHRyaXZlZGkifSwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE1MTkxMzk2NjIsImhhc2giOiJlNzAzNTk3N2JjNGEyNWU0MGQxZDg2Y2Q3MTM4MzI2MjMwNGQ4NWM1YzdlZjFlYTc5Y2JkMWI4NTRhODExOTk0MTQ3Y2NjNTIxMmVjNWNlZThmMGEzNzIxMmVkZTk1MDA5MGI1MmRkNmZhM2RmZDMxM2FkNWI1NzU0Nzc5OWFkOCIsImhhc2hfbWV0YSI6IjVmZTc2NWI4NGFhYmE5ZGI3NjgwNzBmZDY4ZTYyNWIzMmUwNGFhYzMwMzIxN2E0NTI2YTJkMDkwMTBhOTM4NDMiLCJzZXFubyI6MjEyNzc5OH0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJuaWxlc2h0cml2ZWRpLmNvbSIsInByb3RvY29sIjoiaHR0cHM6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjQwIn0sImN0aW1lIjoxNTE5MTM5Njc2LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwicHJldiI6IjY2ZGJmYzcyNWUyNDkxMWU1ZTc0NWJiNWNlNGJmNGY3M2IyZTMwM2NmY2FkNjMxN2FmMTczMmU2ZTg0NzM4OTIiLCJzZXFubyI6MTAsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RADQXFr4M7/FTLDoCOnhdJHBpndEQYDAmnmNz3clbc+MUjqoDSu4rWS5jt2qVnc2n1++oSy38hepLIHUHvkbrACqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIJpzeEIsYV/rBYWFCM1b3VYLVi/bfWSoO8zajUZ/h3rbo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nileshtrivedi
+
+==================================================================
